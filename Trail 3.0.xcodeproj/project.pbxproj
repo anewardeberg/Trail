@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BB27319C30000A8221 /* AppDelegate.swift */; };
+		BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BD27319C30000A8221 /* SceneDelegate.swift */; };
+		BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BF27319C30000A8221 /* ContactListViewController.swift */; };
+		BECBA6C327319C30000A8221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C127319C30000A8221 /* Main.storyboard */; };
+		BECBA6C627319C30000A8221 /* Trail_3_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */; };
+		BECBA6C827319C33000A8221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C727319C33000A8221 /* Assets.xcassets */; };
+		BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C927319C33000A8221 /* LaunchScreen.storyboard */; };
+		BECBA6D627319C34000A8221 /* Trail_3_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6D527319C34000A8221 /* Trail_3_0Tests.swift */; };
+		BECBA6E027319C34000A8221 /* Trail_3_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6DF27319C34000A8221 /* Trail_3_0UITests.swift */; };
+		BECBA6E227319C34000A8221 /* Trail_3_0UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6E127319C34000A8221 /* Trail_3_0UITestsLaunchTests.swift */; };
+		BECBA6F327319FDF000A8221 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F227319FDF000A8221 /* Contact.swift */; };
+		BECBA6F52731A001000A8221 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F42731A000000A8221 /* API.swift */; };
+		BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F62731A04F000A8221 /* ContactModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BECBA6D227319C34000A8221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECBA6B027319C30000A8221 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BECBA6B727319C30000A8221;
+			remoteInfo = "Trail 3.0";
+		};
+		BECBA6DC27319C34000A8221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECBA6B027319C30000A8221 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BECBA6B727319C30000A8221;
+			remoteInfo = "Trail 3.0";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BECBA6B827319C30000A8221 /* Trail 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trail 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECBA6BB27319C30000A8221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BECBA6BD27319C30000A8221 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BECBA6BF27319C30000A8221 /* ContactListViewController.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		BECBA6C227319C30000A8221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BECBA6C527319C30000A8221 /* Trail_3_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trail_3_0.xcdatamodel; sourceTree = "<group>"; };
+		BECBA6C727319C33000A8221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BECBA6CA27319C33000A8221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BECBA6CC27319C33000A8221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BECBA6D127319C34000A8221 /* Trail 3.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trail 3.0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECBA6D527319C34000A8221 /* Trail_3_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail_3_0Tests.swift; sourceTree = "<group>"; };
+		BECBA6DB27319C34000A8221 /* Trail 3.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trail 3.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECBA6DF27319C34000A8221 /* Trail_3_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail_3_0UITests.swift; sourceTree = "<group>"; };
+		BECBA6E127319C34000A8221 /* Trail_3_0UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail_3_0UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BECBA6F227319FDF000A8221 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		BECBA6F42731A000000A8221 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BECBA6F62731A04F000A8221 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BECBA6B527319C30000A8221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6CE27319C34000A8221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6D827319C34000A8221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BECBA6AF27319C30000A8221 = {
+			isa = PBXGroup;
+			children = (
+				BECBA6BA27319C30000A8221 /* Trail 3.0 */,
+				BECBA6D427319C34000A8221 /* Trail 3.0Tests */,
+				BECBA6DE27319C34000A8221 /* Trail 3.0UITests */,
+				BECBA6B927319C30000A8221 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BECBA6B927319C30000A8221 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6B827319C30000A8221 /* Trail 3.0.app */,
+				BECBA6D127319C34000A8221 /* Trail 3.0Tests.xctest */,
+				BECBA6DB27319C34000A8221 /* Trail 3.0UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BECBA6BA27319C30000A8221 /* Trail 3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6F42731A000000A8221 /* API.swift */,
+				BECBA6F127319F72000A8221 /* Views */,
+				BECBA6F027319F67000A8221 /* Controllers */,
+				BECBA6EE27319F4A000A8221 /* Models */,
+				BECBA6BB27319C30000A8221 /* AppDelegate.swift */,
+				BECBA6BD27319C30000A8221 /* SceneDelegate.swift */,
+				BECBA6C727319C33000A8221 /* Assets.xcassets */,
+				BECBA6CC27319C33000A8221 /* Info.plist */,
+				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
+			);
+			path = "Trail 3.0";
+			sourceTree = "<group>";
+		};
+		BECBA6D427319C34000A8221 /* Trail 3.0Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6D527319C34000A8221 /* Trail_3_0Tests.swift */,
+			);
+			path = "Trail 3.0Tests";
+			sourceTree = "<group>";
+		};
+		BECBA6DE27319C34000A8221 /* Trail 3.0UITests */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6DF27319C34000A8221 /* Trail_3_0UITests.swift */,
+				BECBA6E127319C34000A8221 /* Trail_3_0UITestsLaunchTests.swift */,
+			);
+			path = "Trail 3.0UITests";
+			sourceTree = "<group>";
+		};
+		BECBA6EE27319F4A000A8221 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6F227319FDF000A8221 /* Contact.swift */,
+				BECBA6F62731A04F000A8221 /* ContactModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BECBA6F027319F67000A8221 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6BF27319C30000A8221 /* ContactListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BECBA6F127319F72000A8221 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BECBA6C127319C30000A8221 /* Main.storyboard */,
+				BECBA6C927319C33000A8221 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BECBA6B727319C30000A8221 /* Trail 3.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BECBA6E527319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0" */;
+			buildPhases = (
+				BECBA6B427319C30000A8221 /* Sources */,
+				BECBA6B527319C30000A8221 /* Frameworks */,
+				BECBA6B627319C30000A8221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trail 3.0";
+			productName = "Trail 3.0";
+			productReference = BECBA6B827319C30000A8221 /* Trail 3.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BECBA6D027319C34000A8221 /* Trail 3.0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BECBA6E827319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0Tests" */;
+			buildPhases = (
+				BECBA6CD27319C34000A8221 /* Sources */,
+				BECBA6CE27319C34000A8221 /* Frameworks */,
+				BECBA6CF27319C34000A8221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BECBA6D327319C34000A8221 /* PBXTargetDependency */,
+			);
+			name = "Trail 3.0Tests";
+			productName = "Trail 3.0Tests";
+			productReference = BECBA6D127319C34000A8221 /* Trail 3.0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BECBA6DA27319C34000A8221 /* Trail 3.0UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BECBA6EB27319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0UITests" */;
+			buildPhases = (
+				BECBA6D727319C34000A8221 /* Sources */,
+				BECBA6D827319C34000A8221 /* Frameworks */,
+				BECBA6D927319C34000A8221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BECBA6DD27319C34000A8221 /* PBXTargetDependency */,
+			);
+			name = "Trail 3.0UITests";
+			productName = "Trail 3.0UITests";
+			productReference = BECBA6DB27319C34000A8221 /* Trail 3.0UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BECBA6B027319C30000A8221 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					BECBA6B727319C30000A8221 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					BECBA6D027319C34000A8221 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BECBA6B727319C30000A8221;
+					};
+					BECBA6DA27319C34000A8221 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BECBA6B727319C30000A8221;
+					};
+				};
+			};
+			buildConfigurationList = BECBA6B327319C30000A8221 /* Build configuration list for PBXProject "Trail 3.0" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BECBA6AF27319C30000A8221;
+			productRefGroup = BECBA6B927319C30000A8221 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BECBA6B727319C30000A8221 /* Trail 3.0 */,
+				BECBA6D027319C34000A8221 /* Trail 3.0Tests */,
+				BECBA6DA27319C34000A8221 /* Trail 3.0UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BECBA6B627319C30000A8221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */,
+				BECBA6C827319C33000A8221 /* Assets.xcassets in Resources */,
+				BECBA6C327319C30000A8221 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6CF27319C34000A8221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6D927319C34000A8221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BECBA6B427319C30000A8221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */,
+				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,
+				BECBA6F327319FDF000A8221 /* Contact.swift in Sources */,
+				BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */,
+				BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */,
+				BECBA6F52731A001000A8221 /* API.swift in Sources */,
+				BECBA6C627319C30000A8221 /* Trail_3_0.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6CD27319C34000A8221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BECBA6D627319C34000A8221 /* Trail_3_0Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECBA6D727319C34000A8221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BECBA6E227319C34000A8221 /* Trail_3_0UITestsLaunchTests.swift in Sources */,
+				BECBA6E027319C34000A8221 /* Trail_3_0UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BECBA6D327319C34000A8221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BECBA6B727319C30000A8221 /* Trail 3.0 */;
+			targetProxy = BECBA6D227319C34000A8221 /* PBXContainerItemProxy */;
+		};
+		BECBA6DD27319C34000A8221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BECBA6B727319C30000A8221 /* Trail 3.0 */;
+			targetProxy = BECBA6DC27319C34000A8221 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BECBA6C127319C30000A8221 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BECBA6C227319C30000A8221 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BECBA6C927319C33000A8221 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BECBA6CA27319C33000A8221 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BECBA6E327319C34000A8221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BECBA6E427319C34000A8221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BECBA6E627319C34000A8221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Trail 3.0/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Trail;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BECBA6E727319C34000A8221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Trail 3.0/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Trail;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BECBA6E927319C34000A8221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trail 3.0.app/Trail 3.0";
+			};
+			name = Debug;
+		};
+		BECBA6EA27319C34000A8221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trail 3.0.app/Trail 3.0";
+			};
+			name = Release;
+		};
+		BECBA6EC27319C34000A8221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trail 3.0";
+			};
+			name = Debug;
+		};
+		BECBA6ED27319C34000A8221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SF35ETS7MX;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "no.wardeberg.Trail-3-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trail 3.0";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BECBA6B327319C30000A8221 /* Build configuration list for PBXProject "Trail 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECBA6E327319C34000A8221 /* Debug */,
+				BECBA6E427319C34000A8221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BECBA6E527319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECBA6E627319C34000A8221 /* Debug */,
+				BECBA6E727319C34000A8221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BECBA6E827319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECBA6E927319C34000A8221 /* Debug */,
+				BECBA6EA27319C34000A8221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BECBA6EB27319C34000A8221 /* Build configuration list for PBXNativeTarget "Trail 3.0UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECBA6EC27319C34000A8221 /* Debug */,
+				BECBA6ED27319C34000A8221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BECBA6C527319C30000A8221 /* Trail_3_0.xcdatamodel */,
+			);
+			currentVersion = BECBA6C527319C30000A8221 /* Trail_3_0.xcdatamodel */;
+			path = Trail_3_0.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BECBA6B027319C30000A8221 /* Project object */;
+}

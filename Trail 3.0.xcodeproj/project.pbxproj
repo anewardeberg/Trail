@@ -12,7 +12,6 @@
 		BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BF27319C30000A8221 /* ContactListViewController.swift */; };
 		BECBA6C327319C30000A8221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C127319C30000A8221 /* Main.storyboard */; };
 		BECBA6C627319C30000A8221 /* Trail_3_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */; };
-		BECBA6C827319C33000A8221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C727319C33000A8221 /* Assets.xcassets */; };
 		BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6C927319C33000A8221 /* LaunchScreen.storyboard */; };
 		BECBA6D627319C34000A8221 /* Trail_3_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6D527319C34000A8221 /* Trail_3_0Tests.swift */; };
 		BECBA6E027319C34000A8221 /* Trail_3_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6DF27319C34000A8221 /* Trail_3_0UITests.swift */; };
@@ -20,6 +19,8 @@
 		BECBA6F327319FDF000A8221 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F227319FDF000A8221 /* Contact.swift */; };
 		BECBA6F52731A001000A8221 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F42731A000000A8221 /* API.swift */; };
 		BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F62731A04F000A8221 /* ContactModel.swift */; };
+		BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FA2731D618000A8221 /* Extensions.swift */; };
+		BECBA6FD27326FDE000A8221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6FC27326FDE000A8221 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,6 @@
 		BECBA6BF27319C30000A8221 /* ContactListViewController.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		BECBA6C227319C30000A8221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BECBA6C527319C30000A8221 /* Trail_3_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trail_3_0.xcdatamodel; sourceTree = "<group>"; };
-		BECBA6C727319C33000A8221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BECBA6CA27319C33000A8221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BECBA6CC27319C33000A8221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BECBA6D127319C34000A8221 /* Trail 3.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trail 3.0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +57,8 @@
 		BECBA6F227319FDF000A8221 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		BECBA6F42731A000000A8221 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BECBA6F62731A04F000A8221 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		BECBA6FA2731D618000A8221 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BECBA6FC27326FDE000A8221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				BECBA6F42731A000000A8221 /* API.swift */,
+				BECBA6FA2731D618000A8221 /* Extensions.swift */,
+				BECBA6EE27319F4A000A8221 /* Models */,
 				BECBA6F127319F72000A8221 /* Views */,
 				BECBA6F027319F67000A8221 /* Controllers */,
-				BECBA6EE27319F4A000A8221 /* Models */,
 				BECBA6BB27319C30000A8221 /* AppDelegate.swift */,
+				BECBA6FC27326FDE000A8221 /* Assets.xcassets */,
 				BECBA6BD27319C30000A8221 /* SceneDelegate.swift */,
-				BECBA6C727319C33000A8221 /* Assets.xcassets */,
 				BECBA6CC27319C33000A8221 /* Info.plist */,
 				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
 			);
@@ -268,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */,
-				BECBA6C827319C33000A8221 /* Assets.xcassets in Resources */,
+				BECBA6FD27326FDE000A8221 /* Assets.xcassets in Resources */,
 				BECBA6C327319C30000A8221 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +300,7 @@
 				BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */,
 				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,
 				BECBA6F327319FDF000A8221 /* Contact.swift in Sources */,
+				BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */,
 				BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */,
 				BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */,
 				BECBA6F52731A001000A8221 /* API.swift in Sources */,
@@ -482,7 +486,7 @@
 				DEVELOPMENT_TEAM = SF35ETS7MX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Trail 3.0/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Trail;
+				INFOPLIST_KEY_CFBundleDisplayName = "Trail 3.0";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -511,7 +515,7 @@
 				DEVELOPMENT_TEAM = SF35ETS7MX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Trail 3.0/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Trail;
+				INFOPLIST_KEY_CFBundleDisplayName = "Trail 3.0";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

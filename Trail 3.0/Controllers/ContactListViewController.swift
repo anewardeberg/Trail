@@ -52,8 +52,18 @@ class ContactListViewController: UITableViewController {
                for: indexPath
           )
           cell.textLabel?.text = "\(contactViewModels[indexPath.row].firstName) \(contactViewModels[indexPath.row].lastName)"
+          cell.imageView?.loadImage(urlString: contactViewModels[indexPath.row].imgMedium)
           return cell
      }
+     
+//     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//         let selectedContact = contactViewModels[indexPath.row]
+//         
+//         if let viewController = storyboard?.instantiateViewController(identifier: "ContactDetailViewController") as? ContactDetailViewController {
+//             viewController.contact = selectedContact
+//             navigationController?.pushViewController(viewController, animated: true)
+//         }
+//     }
      
      
      

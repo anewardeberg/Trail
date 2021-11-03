@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="291" y="-38"/>
         </scene>
-        <!--Contact List View Controller-->
+        <!--Contact List-->
         <scene sceneID="Sma-cl-hkw">
             <objects>
                 <tableViewController id="pcY-gu-i2D" customClass="ContactListViewController" customModule="Trail_3_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,11 +102,30 @@
                             <outlet property="delegate" destination="pcY-gu-i2D" id="NDM-94-hWj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OUw-xl-YEm"/>
+                    <navigationItem key="navigationItem" title="Contact List" id="OUw-xl-YEm"/>
+                    <connections>
+                        <segue destination="SPr-Ue-goL" kind="show" identifier="goToContactDetail" id="O9D-yu-lBw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7X-na-jKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1629" y="690"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mk5-aV-BXG">
+            <objects>
+                <viewController id="SPr-Ue-goL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vCq-Ni-PlH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BrD-gS-Sbf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xus-vi-8jX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Bd-bv-ILU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1629" y="1394"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Q8g-Vh-KXI">
@@ -135,7 +154,7 @@
             </objects>
             <point key="canvasLocation" x="-691.304347826087" y="689.73214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="tJf-ci-LO5">
             <objects>
                 <viewController id="aQb-rq-fVL" sceneMemberID="viewController">
@@ -145,7 +164,7 @@
                         <viewLayoutGuide key="safeArea" id="cEs-1f-rsq"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LBV-iC-Qq7"/>
+                    <navigationItem key="navigationItem" title="Settings" id="LBV-iC-Qq7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mas-VI-hbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

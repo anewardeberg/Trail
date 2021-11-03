@@ -21,6 +21,7 @@
 		BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F62731A04F000A8221 /* ContactModel.swift */; };
 		BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FA2731D618000A8221 /* Extensions.swift */; };
 		BECBA6FD27326FDE000A8221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6FC27326FDE000A8221 /* Assets.xcassets */; };
+		BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BECBA6F62731A04F000A8221 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		BECBA6FA2731D618000A8221 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BECBA6FC27326FDE000A8221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
+		BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				BECBA6BF27319C30000A8221 /* ContactListViewController.swift */,
+				BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,
 				BECBA6F327319FDF000A8221 /* Contact.swift in Sources */,
 				BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */,
+				BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */,
 				BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */,
 				BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */,
 				BECBA6F52731A001000A8221 /* API.swift in Sources */,

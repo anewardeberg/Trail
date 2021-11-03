@@ -287,6 +287,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit contact"/>
+                                <connections>
+                                    <action selector="editContactButtonWasTapped:" destination="SPr-Ue-goL" eventType="touchUpInside" id="eXw-Lx-7gT"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

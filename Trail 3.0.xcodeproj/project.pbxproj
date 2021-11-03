@@ -22,7 +22,9 @@
 		BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FA2731D618000A8221 /* Extensions.swift */; };
 		BECBA6FD27326FDE000A8221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECBA6FC27326FDE000A8221 /* Assets.xcassets */; };
 		BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */; };
-		BEFE93052732C9660003C4B6 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE93042732C9650003C4B6 /* CustomImageView.swift */; };
+		BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE93082732EE1A0003C4B6 /* MapViewController.swift */; };
+		BEFE930B2732F1260003C4B6 /* ContactLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE930A2732F1260003C4B6 /* ContactLocation.swift */; };
+		BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE9315273320180003C4B6 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,9 @@
 		BECBA6FA2731D618000A8221 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BECBA6FC27326FDE000A8221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
 		BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
-		BEFE93042732C9650003C4B6 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		BEFE93082732EE1A0003C4B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BEFE930A2732F1260003C4B6 /* ContactLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactLocation.swift; sourceTree = "<group>"; };
+		BEFE9315273320180003C4B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +153,7 @@
 			children = (
 				BECBA6F227319FDF000A8221 /* Contact.swift */,
 				BECBA6F62731A04F000A8221 /* ContactModel.swift */,
-				BEFE93042732C9650003C4B6 /* CustomImageView.swift */,
+				BEFE930A2732F1260003C4B6 /* ContactLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +163,8 @@
 			children = (
 				BECBA6BF27319C30000A8221 /* ContactListViewController.swift */,
 				BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */,
+				BEFE93082732EE1A0003C4B6 /* MapViewController.swift */,
+				BEFE9315273320180003C4B6 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,16 +309,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */,
+				BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */,
 				BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */,
 				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,
 				BECBA6F327319FDF000A8221 /* Contact.swift in Sources */,
 				BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */,
+				BEFE930B2732F1260003C4B6 /* ContactLocation.swift in Sources */,
 				BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */,
 				BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */,
 				BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */,
 				BECBA6F52731A001000A8221 /* API.swift in Sources */,
 				BECBA6C627319C30000A8221 /* Trail_3_0.xcdatamodeld in Sources */,
-				BEFE93052732C9660003C4B6 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

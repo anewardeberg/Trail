@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ContactDetailViewController: UIViewController {
-    var contact: ContactCellViewModel?
+    var contact: ContactModel?
     
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,6 +18,23 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var showUserOnMapButton: UIButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let contact = contact {
+            contactImageView.loadImage(urlString: contact.imgLarge)
+            nameLabel.text = "\(contact.firstName) \(contact.lastName)"
+            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
+            locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
+            cellLabel.text = "+47 \(contact.cell)"
+            mailLabel.text = contact.email
+            
+            showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
+        }
+        
+        
+    }
     
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
         print("==== SHOW USER ON MAP")
@@ -41,25 +58,6 @@ class ContactDetailViewController: UIViewController {
         }))
         
         present(refreshAlert, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let contact = contact {
-            contactImageView.loadImage(urlString: contact.imgLarge)
-            nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
-            locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
-            cellLabel.text = "+47 \(contact.cell)"
-            mailLabel.text = contact.email
-            
-            showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
-        }
-        
-        
     }
 }
 

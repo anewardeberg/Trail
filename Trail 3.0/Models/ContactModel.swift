@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ContactCellViewModel{
+class ContactModel{
     let firstName: String
     let lastName: String
     let age: Int
@@ -16,6 +16,8 @@ class ContactCellViewModel{
     let city: String
     let state: String
     let postcode: String
+    let latitude: String
+    let longitude: String
     let cell: String
     let email: String
     let imgMedium: String
@@ -30,6 +32,8 @@ class ContactCellViewModel{
         city: String,
         state: String,
         postcode: String,
+        latitude: String,
+        longitude: String,
         cell: String,
         email: String,
         imgMedium: String,
@@ -43,6 +47,8 @@ class ContactCellViewModel{
         self.city = city
         self.state = state
         self.postcode = postcode
+        self.latitude = latitude
+        self.longitude = longitude
         self.cell = cell
         self.email = email
         self.imgMedium = imgMedium

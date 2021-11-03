@@ -11,6 +11,7 @@ import UIKit
 
 // https://www.youtube.com/watch?v=OTcQnf6ziew
 
+
 extension UIImageView {
     func loadImage(urlString : String) {
         guard let url = URL(string: urlString) else {

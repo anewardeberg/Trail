@@ -10,6 +10,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    #warning("TODO: get contacts and display on map")
     private var contactModels = [ContactModel]()
     
     override func viewDidLoad() {

@@ -10,15 +10,13 @@ import UIKit
 class ContactListViewController: UITableViewController, UITabBarDelegate {
      
      
-     // MARK: Egen funksjon som lagrer bilder
+     #warning("TODO: Lag egen funksjon for å lagre bilder")
      
      private var contactModels = [ContactModel]()
      var selectedContact: ContactModel?
      
      override func viewDidLoad() {
           super.viewDidLoad()
-          
-          // Do any additional setup after loading the view.
           
           API.shared.getRandomContacts{ [weak self] result in
                switch result {
@@ -54,7 +52,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           
      }
      
-     //TODO: Fix this.
+     #warning("TODO: Fix tab bar notifications")
      private func tabBar(_ tabBar: UITabBar, didSelect navigationController: UINavigationController) {
           if navigationController.restorationIdentifier == "contactListNC"{
                print("==== CONTACT LIST VIEW CONTROLLER")

@@ -37,11 +37,13 @@ class ContactDetailViewController: UIViewController {
     }
     
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
+        #warning("TODO: Implement functionality")
         print("==== SHOW USER ON MAP")
     }
     
     
     @IBAction func editContactButtonWasTapped(_ sender: UIButton) {
+        #warning("TODO: Implement functionality")
         print("==== EDIT CONTACT")
     }
     
@@ -50,10 +52,12 @@ class ContactDetailViewController: UIViewController {
         //  https://stackoverflow.com/questions/25511945/swift-alert-view-with-ok-and-cancel-which-button-tapped
         let refreshAlert = UIAlertController(title: "Delete contact?", message: "This action cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
+            #warning("TODO: Implement functionality")
             print("==== CONTACT DELETED")
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            #warning("TODO: Implement functionality")  
             print("==== ACTION CANCELLED")
         }))
         

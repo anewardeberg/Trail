@@ -16,7 +16,7 @@ import UIKit
 final class API {
     
     static let shared = API()
-    let url = URL(string: "https://randomuser.me/api/?results=100&nat=no")
+    let url = URL(string: "https://randomuser.me/api/?results=100&seed=ios&nat=no")
     
     private init(){}
     

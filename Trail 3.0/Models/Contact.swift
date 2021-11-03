@@ -29,7 +29,7 @@ struct Contact: Codable {
 // MARK: - Dob
 struct Dob: Codable {
     let date: String
-//    let age: Int
+    let age: Int
 }
 
 // MARK: - ID
@@ -41,7 +41,7 @@ struct ID: Codable {
 // MARK: - Location
 struct Location: Codable {
     let city, state, country: String
-//    let postcode: Int64
+    let postcode: String
     let coordinates: Coordinates
 }
 

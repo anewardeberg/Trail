@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FnB-wv-iDY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,7 +34,7 @@
                 <navigationController id="5CI-8Q-fzH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.crop.rectangle.stack" catalog="system" id="yJn-Ue-urC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fcD-gs-pfO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -51,7 +51,7 @@
                 <navigationController id="yRk-yd-WDI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="3lR-f0-f3Y"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dxO-Uw-AmF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -68,7 +68,7 @@
                 <navigationController id="jP5-xj-jR0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="7nS-k5-zhA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mAT-AY-SGk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -84,15 +84,15 @@
             <objects>
                 <tableViewController id="pcY-gu-i2D" customClass="ContactListViewController" customModule="Trail_3_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Tqd-wo-U5P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="ddm-Fw-4oH" customClass="ContactCell" customModule="Trail_3_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddm-Fw-4oH" id="Jbf-O6-SK5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -111,32 +111,209 @@
             </objects>
             <point key="canvasLocation" x="-1629" y="690"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Detail View Controller-->
         <scene sceneID="mk5-aV-BXG">
             <objects>
-                <viewController id="SPr-Ue-goL" sceneMemberID="viewController">
+                <viewController id="SPr-Ue-goL" customClass="ContactDetailViewController" customModule="Trail_3_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCq-Ni-PlH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0W-i6-MgX">
+                                <rect key="frame" x="120" y="147" width="150" height="150"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-8f-IGt">
+                                <rect key="frame" x="30" y="350" width="113" height="185"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ker-zf-uVh" userLabel="Name Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="imY-nv-9BB">
+                                                <rect key="frame" x="0.0" y="1.9999999999999982" width="25" height="21.666666666666664"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="OCo-HC-MII"/>
+                                                    <constraint firstAttribute="width" constant="25" id="ybT-06-tjj"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs4-EJ-p3H">
+                                                <rect key="frame" x="40" y="0.0" width="73" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="3Ag-FA-hi9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cs4-EJ-p3H" firstAttribute="leading" secondItem="imY-nv-9BB" secondAttribute="trailing" constant="30" id="OTD-dg-ogO"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2Vo-e9-0dx" userLabel="Birthday Stack View">
+                                        <rect key="frame" x="0.0" y="40" width="104" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-6d-4xT">
+                                                <rect key="frame" x="0.0" y="-3.5527136788005009e-15" width="25" height="24.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="CJE-ik-IYZ"/>
+                                                    <constraint firstAttribute="height" constant="25" id="cHu-Fx-X7D"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4D-XD-Jl2">
+                                                <rect key="frame" x="40" y="0.0" width="64" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="rn3-cn-e7M"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="l4D-XD-Jl2" secondAttribute="trailing" id="LkG-iw-YYm"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ftv-Oz-VWf" userLabel="Location Stack View">
+                                        <rect key="frame" x="0.0" y="80" width="105.33333333333333" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E6P-OX-8mx">
+                                                <rect key="frame" x="0.0" y="0.33333333333333215" width="25" height="24.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="0Pa-O4-BBz"/>
+                                                    <constraint firstAttribute="width" constant="25" id="btz-od-4oa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5k-C9-Q4j">
+                                                <rect key="frame" x="39.999999999999993" y="0.0" width="65.333333333333314" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="LOg-Zl-AS0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Q5k-C9-Q4j" secondAttribute="trailing" id="m1b-cp-ZV8"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-Ss-6KP" userLabel="Cell Stack View">
+                                        <rect key="frame" x="0.0" y="120" width="69" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YeJ-HW-PAX">
+                                                <rect key="frame" x="0.0" y="1.6666666666666661" width="25" height="22.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="uxi-aT-lAr"/>
+                                                    <constraint firstAttribute="width" constant="25" id="wNV-rO-2hK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zss-Ny-sSS">
+                                                <rect key="frame" x="40" y="0.0" width="29" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="uBK-QX-4iV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zss-Ny-sSS" secondAttribute="trailing" id="Nf0-Z9-GgN"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-d9-8lS" userLabel="Mail Stack View">
+                                        <rect key="frame" x="0.0" y="160" width="71.333333333333329" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-MW-Akf">
+                                                <rect key="frame" x="0.0" y="2.3333333333333321" width="25" height="21.000000000000004"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="JfN-fP-JXi"/>
+                                                    <constraint firstAttribute="width" constant="25" id="pBa-iC-cSP"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4B-hj-aOr">
+                                                <rect key="frame" x="40" y="0.0" width="31.333333333333329" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Jw3-ty-RQb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="N4B-hj-aOr" secondAttribute="trailing" id="e3C-Ky-dnw"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-iu-7o6">
+                                <rect key="frame" x="135.66666666666666" y="674" width="118.66666666666666" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFj-Ep-X0Q">
+                                        <rect key="frame" x="26" y="0.0" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <action selector="showUserOnMapButtonWasTapped:" destination="SPr-Ue-goL" eventType="touchUpInside" id="jrD-cT-Zsb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2M-8P-JoA">
+                                        <rect key="frame" x="0.0" y="36" width="118.66666666666667" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Delete contact"/>
+                                        <connections>
+                                            <action selector="deleteContactButtonWasTapped:" destination="SPr-Ue-goL" eventType="touchUpInside" id="XAc-Sr-E4B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BrD-gS-Sbf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CQZ-8f-IGt" firstAttribute="top" secondItem="A0W-i6-MgX" secondAttribute="bottom" constant="50" id="CbZ-Xb-v16"/>
+                            <constraint firstItem="1tq-iu-7o6" firstAttribute="centerX" secondItem="vCq-Ni-PlH" secondAttribute="centerX" id="V2l-3S-nXL"/>
+                            <constraint firstItem="CQZ-8f-IGt" firstAttribute="leading" secondItem="BrD-gS-Sbf" secondAttribute="leading" constant="30" id="WRm-TV-XG2"/>
+                            <constraint firstItem="A0W-i6-MgX" firstAttribute="centerX" secondItem="vCq-Ni-PlH" secondAttribute="centerX" id="oop-MT-ka9"/>
+                            <constraint firstItem="BrD-gS-Sbf" firstAttribute="bottom" secondItem="1tq-iu-7o6" secondAttribute="bottom" constant="20" id="qJK-jx-qVf"/>
+                            <constraint firstItem="A0W-i6-MgX" firstAttribute="top" secondItem="BrD-gS-Sbf" secondAttribute="top" constant="60" id="vcg-yI-0tw"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Xus-vi-8jX"/>
+                    <navigationItem key="navigationItem" id="Xus-vi-8jX">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="llZ-ta-uyi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="91G-aZ-FkM">
+                                <rect key="frame" x="258.33333333333331" y="5" width="115.66666666666669" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit contact"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="birthdayLabel" destination="l4D-XD-Jl2" id="YrK-wl-w2H"/>
+                        <outlet property="cellLabel" destination="zss-Ny-sSS" id="tkH-PI-ba0"/>
+                        <outlet property="contactImageView" destination="A0W-i6-MgX" id="bYX-Kw-E2I"/>
+                        <outlet property="locationLabel" destination="Q5k-C9-Q4j" id="yK6-ip-SYa"/>
+                        <outlet property="mailLabel" destination="N4B-hj-aOr" id="9y6-pR-fq8"/>
+                        <outlet property="nameLabel" destination="cs4-EJ-p3H" id="A3N-HL-pdi"/>
+                        <outlet property="showUserOnMapButton" destination="GFj-Ep-X0Q" id="QJj-K5-ZoG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Bd-bv-ILU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1629" y="1394"/>
+            <point key="canvasLocation" x="-1629.2307692307693" y="1393.3649289099526"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Q8g-Vh-KXI">
             <objects>
                 <viewController id="4e9-C7-82y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OBW-rg-idp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-Tg-Gm1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kUk-I0-Mbt"/>
@@ -159,7 +336,7 @@
             <objects>
                 <viewController id="aQb-rq-fVL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3DH-uu-CHG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="cEs-1f-rsq"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -172,9 +349,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="gift" catalog="system" width="128" height="124"/>
         <image name="map" catalog="system" width="128" height="110"/>
+        <image name="mappin" catalog="system" width="105" height="128"/>
         <image name="person.crop.rectangle.stack" catalog="system" width="128" height="122"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,6 +11,8 @@ import UIKit
 // MARK: Fetching data from API in final class
 // MARK: For lagring, se på forelesningsprosjekt (Studentcounter)
 // https://www.youtube.com/watch?v=V2IfBdxjWs4&t=1377s
+
+
 final class API {
     
     static let shared = API()

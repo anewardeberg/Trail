@@ -13,24 +13,34 @@ class ContactListViewController: UITableViewController {
      // MARK: Egen funksjon som lagrer bilder
      
      private var contactViewModels = [ContactCellViewModel]()
+     var selectedContact: ContactCellViewModel?
      
      override func viewDidLoad() {
           super.viewDidLoad()
           
           // Do any additional setup after loading the view.
+      
           API.shared.getRandomContacts{ [weak self] result in
                switch result {
                case .success(let contacts):
                     self?.contactViewModels = contacts.compactMap({
+                         
                          ContactCellViewModel(
                               firstName: $0.name.first,
-                              lastName: $0.name.last ,
+                              lastName: $0.name.last,
+                              age: $0.dob.age,
+                              date: $0.dob.date,
+                              city: $0.location.city,
+                              state: $0.location.state,
+                              postcode: $0.location.postcode,
+                              cell: $0.cell,
+                              email: $0.email,
                               imgMedium: $0.picture.medium,
                               imgLarge: $0.picture.large,
                               imgThumb: $0.picture.thumbnail
                               
                          )})
-                    
+               
                     DispatchQueue.main.async {
                          self?.tableView.reloadData()
                     }
@@ -51,20 +61,33 @@ class ContactListViewController: UITableViewController {
                withIdentifier: "ContactCell",
                for: indexPath
           )
-          cell.textLabel?.text = "\(contactViewModels[indexPath.row].firstName) \(contactViewModels[indexPath.row].lastName)"
           cell.imageView?.loadImage(urlString: contactViewModels[indexPath.row].imgMedium)
+          cell.textLabel?.text = "\(contactViewModels[indexPath.row].firstName) \(contactViewModels[indexPath.row].lastName)"
+
           return cell
      }
      
-//     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//         let selectedContact = contactViewModels[indexPath.row]
-//         
-//         if let viewController = storyboard?.instantiateViewController(identifier: "ContactDetailViewController") as? ContactDetailViewController {
-//             viewController.contact = selectedContact
-//             navigationController?.pushViewController(viewController, animated: true)
-//         }
-//     }
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+               selectedContact = contactViewModels[indexPath.row]
+
+          print("====== BIRTHDAY")
+          print(selectedContact?.date)
+          
+          self.performSegue(withIdentifier: "goToContactDetail", sender: self)
+          
+          
+          
      
+     }
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == "goToContactDetail" {
+               let destinationVC = segue.destination as! ContactDetailViewController
+               if let selectedContact = selectedContact {
+                    destinationVC.contact = selectedContact
+               }
+          }
+     }
      
      
      

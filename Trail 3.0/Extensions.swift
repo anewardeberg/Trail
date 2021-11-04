@@ -28,3 +28,25 @@ extension UIImageView {
         }
     }
 }
+
+extension Date {
+    func formatDateToString(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
+    
+    func checkBirthdayWeek() {
+        
+    }
+}
+
+extension String {
+    func formatISOStringToDate() -> Date {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
+        let date = formatter.date(from: self)!
+        return date
+    }
+}
+

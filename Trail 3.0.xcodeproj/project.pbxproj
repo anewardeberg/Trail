@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE15C0C427340CD200B06446 /* SettingsViewController.swift */; };
 		BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BB27319C30000A8221 /* AppDelegate.swift */; };
 		BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BD27319C30000A8221 /* SceneDelegate.swift */; };
 		BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BF27319C30000A8221 /* ContactListViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE15C0C427340CD200B06446 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BECBA6B827319C30000A8221 /* Trail 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trail 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECBA6BB27319C30000A8221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BECBA6BD27319C30000A8221 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */,
 				BEFE93082732EE1A0003C4B6 /* MapViewController.swift */,
 				BEFE9315273320180003C4B6 /* TabBarController.swift */,
+				BE15C0C427340CD200B06446 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */,
 				BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */,
 				BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */,
+				BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */,
 				BECBA6F52731A001000A8221 /* API.swift in Sources */,
 				BECBA6C627319C30000A8221 /* Trail_3_0.xcdatamodeld in Sources */,
 			);

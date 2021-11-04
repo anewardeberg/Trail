@@ -16,9 +16,18 @@ import UIKit
 final class API {
     
     static let shared = API()
-    let url = URL(string: "https://randomuser.me/api/?results=100&seed=ios&nat=no")
+    var seed: String = "ios"
+    
+    var url = URL(string: "https://randomuser.me/api/?results=100&seed=ios&nat=no")
+
     
     private init(){}
+    
+    func setApiSeed(seedInput: String) {
+        url = URL(string: "https://randomuser.me/api/?results=100&seed=\(seedInput)&nat=no")
+        self.seed = seedInput
+        print(url!)
+    }
     
     public func getRandomContacts(completion: @escaping (Swift.Result<[Contact], Error>) -> Void) {
         guard let url = url else {

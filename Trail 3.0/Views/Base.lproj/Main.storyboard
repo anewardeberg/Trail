@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -342,22 +343,47 @@
         <!--Settings-->
         <scene sceneID="tJf-ci-LO5">
             <objects>
-                <viewController id="aQb-rq-fVL" sceneMemberID="viewController">
+                <viewController id="aQb-rq-fVL" customClass="SettingsViewController" customModule="Trail_3_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3DH-uu-CHG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXg-qX-waA">
+                                <rect key="frame" x="25" y="365" width="340" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="API seed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-S1-HA5">
+                                <rect key="frame" x="25" y="318" width="200" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cEs-1f-rsq"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" name="MainColor"/>
+                        <constraints>
+                            <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="SXg-qX-waA" secondAttribute="trailing" constant="25" id="RG6-xg-C00"/>
+                            <constraint firstItem="SXg-qX-waA" firstAttribute="centerY" secondItem="3DH-uu-CHG" secondAttribute="centerY" constant="-40" id="gSA-fE-M9j"/>
+                            <constraint firstItem="j0r-S1-HA5" firstAttribute="leading" secondItem="cEs-1f-rsq" secondAttribute="leading" constant="25" id="iVJ-3y-T45"/>
+                            <constraint firstItem="SXg-qX-waA" firstAttribute="top" secondItem="j0r-S1-HA5" secondAttribute="bottom" constant="10" id="jjt-Rw-yIa"/>
+                            <constraint firstItem="SXg-qX-waA" firstAttribute="leading" secondItem="cEs-1f-rsq" secondAttribute="leading" constant="25" id="k4b-GB-b8Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="LBV-iC-Qq7"/>
+                    <connections>
+                        <outlet property="apiSeedTextField" destination="SXg-qX-waA" id="V1c-HA-XZH"/>
+                        <segue destination="pcY-gu-i2D" kind="show" identifier="upDateSeedAndGoToContactList" id="vOq-7U-HdH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mas-VI-hbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="690"/>
+            <point key="canvasLocation" x="289.23076923076923" y="689.57345971563973"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EaU-W2-VJ1"/>
+        <segue reference="dq9-O3-T5W"/>
+        <segue reference="vOq-7U-HdH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="envelope" catalog="system" width="128" height="93"/>
@@ -368,11 +394,11 @@
         <image name="person.crop.rectangle.stack" catalog="system" width="128" height="122"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="MainColor">
+            <color red="0.76099997758865356" green="0.80000001192092896" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -10,6 +10,9 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
     var contact: ContactModel?
+    var contactLatitude: String?
+    var contactLongitude: String?
+    var contactImageURL: String?
     
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,13 +26,18 @@ class ContactDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let contact = contact {
+            
+            contactLatitude = contact.latitude
+            contactLongitude = contact.longitude
+            contactImageURL = contact.imgMedium
+            
+            
             contactImageView.loadImage(urlString: contact.imgLarge)
             nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
+            birthdayLabel.text = "\(contact.age) år (\(contact.date.formatISOStringToDate()))"
             locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
             cellLabel.text = "+47 \(contact.cell)"
             mailLabel.text = contact.email
-            
             showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
         }
         
@@ -37,8 +45,7 @@ class ContactDetailViewController: UIViewController {
     }
     
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
-        #warning("TODO: Implement functionality")
-        print("==== SHOW USER ON MAP")
+        self.performSegue(withIdentifier: "showUserOnMap", sender: self)
     }
     
     
@@ -62,6 +69,17 @@ class ContactDetailViewController: UIViewController {
         }))
         
         present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showUserOnMap" {
+            let destinationVC = segue.destination as! MapViewController
+            if let contact = contact {
+                destinationVC.contactLatitude = contactLatitude
+                destinationVC.contactLongitude = contactLongitude
+                destinationVC.contactImageURL = contactImageURL
+            }
+        }
     }
 }
 

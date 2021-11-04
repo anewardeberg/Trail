@@ -302,6 +302,7 @@
                         <outlet property="mailLabel" destination="N4B-hj-aOr" id="9y6-pR-fq8"/>
                         <outlet property="nameLabel" destination="cs4-EJ-p3H" id="A3N-HL-pdi"/>
                         <outlet property="showUserOnMapButton" destination="GFj-Ep-X0Q" id="QJj-K5-ZoG"/>
+                        <segue destination="4e9-C7-82y" kind="show" identifier="showUserOnMap" id="EaU-W2-VJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Bd-bv-ILU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -356,7 +357,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B3U-YQ-2BP"/>
+        <segue reference="EaU-W2-VJ1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="envelope" catalog="system" width="128" height="93"/>

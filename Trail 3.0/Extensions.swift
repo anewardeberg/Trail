@@ -48,5 +48,11 @@ extension String {
         let date = formatter.date(from: self)!
         return date
     }
+    
+    func toDouble() -> Double {
+        let double = Double(self)!
+        return double
+    }
+    
 }
 

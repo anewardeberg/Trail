@@ -52,7 +52,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           
      }
      
-     #warning("TODO: Fix tab bar notifications")
+     #warning("TODO: Fix this")
      private func tabBar(_ tabBar: UITabBar, didSelect navigationController: UINavigationController) {
           if navigationController.restorationIdentifier == "contactListNC"{
                print("==== CONTACT LIST VIEW CONTROLLER")

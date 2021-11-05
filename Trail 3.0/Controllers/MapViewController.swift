@@ -19,10 +19,25 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        https://stackoverflow.com/questions/58565004/how-can-i-turn-the-mkmapview-for-dark-mode
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .dark
+        }
         
         // Custom Map Annotation Pin
         // https://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation
         mapView.delegate = self
+        
+        if let contactLatitude = contactLatitude {
+            let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
+            let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
+            mapView.setRegion(mapView.regionThatFits(region), animated: true)
+            let contactLocation = ContactLocation(name: "User", coordinate: contactCoordinates)
+    //                mapView.setCenter(contactCoordinates, animated: true)
+                    mapView.addAnnotation(contactLocation)
+                    mapView.addAnnotations([contactLocation])
+            
+        }
         
         
         //
@@ -56,14 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         //                  print(error)
         //             }
         //        }
-        let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude?.toDouble() ?? 0, longitude: contactLongitude?.toDouble() ?? 0)
-        let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
-        mapView.setRegion(mapView.regionThatFits(region), animated: true)
-        let contactLocation = ContactLocation(name: "User", coordinate: contactCoordinates)
-//                mapView.setCenter(contactCoordinates, animated: true)
-                mapView.addAnnotation(contactLocation)
-                mapView.addAnnotations([contactLocation])
-        
+
         //
         
         

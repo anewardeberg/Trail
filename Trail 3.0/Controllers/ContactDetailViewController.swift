@@ -50,8 +50,7 @@ class ContactDetailViewController: UIViewController {
     
     
     @IBAction func editContactButtonWasTapped(_ sender: UIButton) {
-        #warning("TODO: Implement functionality")
-        print("==== EDIT CONTACT")
+        self.performSegue(withIdentifier: "goToEditContact", sender: self)
     }
     
     
@@ -78,6 +77,13 @@ class ContactDetailViewController: UIViewController {
                 destinationVC.contactLatitude = contactLatitude
                 destinationVC.contactLongitude = contactLongitude
                 destinationVC.contactImageURL = contactImageURL
+            }
+        }
+        
+        if segue.identifier == "goToEditContact" {
+            let destinationVC = segue.destination as! EditContactViewController
+            if let contact = contact {
+                destinationVC.contact = contact
             }
         }
     }

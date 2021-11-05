@@ -20,3 +20,4 @@ class ContactLocation: NSObject, MKAnnotation {
         self.coordinate = coordinate
     }
 }
+

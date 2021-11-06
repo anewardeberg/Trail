@@ -500,7 +500,7 @@
                         <outlet property="emailTextField" destination="xfC-bK-hTq" id="INh-kl-seC"/>
                         <outlet property="firstNameTextField" destination="8Wq-hp-PFR" id="t2m-gt-2ji"/>
                         <outlet property="lastNameTextField" destination="BBA-po-XtP" id="gQt-2N-pb4"/>
-                        <segue destination="SPr-Ue-goL" kind="showDetail" identifier="saveEditedContact" id="SSI-cm-qoP"/>
+                        <segue destination="SPr-Ue-goL" kind="show" identifier="saveEditedContact" id="SSI-cm-qoP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvb-uL-cVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -21,12 +21,30 @@ class EditContactViewController: UIViewController {
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
 
     @IBAction func saveContactInfoButtonWasTapped(_ sender: Any) {
-        print(firstNameTextField.text)
+        if let contactFirstName = self.firstNameTextField.text {
+            contact?.firstName = contactFirstName
+        }
+        if let contactLastName = self.lastNameTextField.text {
+            contact?.lastName = contactLastName
+        }
+        if let contactCity = self.cityTextField.text {
+            contact?.city = contactCity
+        }
+        if let contactEmail = self.emailTextField.text {
+            contact?.email = contactEmail
+        }
+        if let contactCell = self.cellTextField.text {
+            contact?.cell = contactCell
+        }
+        contact?.date = birthdayDatePicker.date.formatDateToString(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        
+        print(contact?.firstName)
         print(lastNameTextField.text)
         print(cityTextField.text)
         print(cellTextField.text)
         print(emailTextField.text)
         print(birthdayDatePicker.date)
+        self.performSegue(withIdentifier: "saveEditedContact", sender: self)
     }
     
 
@@ -47,11 +65,12 @@ class EditContactViewController: UIViewController {
         
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "saveEditedContact" {
-//            let destinationVC = segue.destination as! ContactDetailViewController
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveEditedContact" {
+            let destinationVC = segue.destination as! ContactDetailViewController
+            destinationVC.contact = contact
+        }
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         activeTextField.endEditing(true)

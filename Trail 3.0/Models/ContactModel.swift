@@ -9,17 +9,17 @@ import UIKit
 
 
 class ContactModel{
-    let firstName: String
-    let lastName: String
-    let age: Int
-    let date: String
-    let city: String
+    var firstName: String
+    var lastName: String
+    var age: Int
+    var date: String
+    var city: String
     let state: String
     let postcode: String
     let latitude: String
     let longitude: String
-    let cell: String
-    let email: String
+    var cell: String
+    var email: String
     let imgMedium: String
     let imgLarge: String
     let imgThumb: String

@@ -36,6 +36,8 @@ class EditContactViewController: UIViewController {
         if let contactCell = self.cellTextField.text {
             contact?.cell = contactCell
         }
+        
+        #warning("change age dynamically to date picked")
         contact?.date = birthdayDatePicker.date.formatDateToString(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         
         print(contact?.firstName)

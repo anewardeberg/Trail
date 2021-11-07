@@ -40,7 +40,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         API.shared.setApiSeed(seedInput: textField.text!)
         textField.text = ""
         textField.placeholder = "Current seed: \(API.shared.seed)"
-        self.performSegue(withIdentifier: "upDateSeedAndGoToContactList", sender: self)
+        tabBarController?.selectedIndex = 0
+//        self.performSegue(withIdentifier: "upDateSeedAndGoToContactList", sender: self)
     }
     
 }

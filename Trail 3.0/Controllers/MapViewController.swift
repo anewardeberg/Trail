@@ -15,14 +15,45 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     
     @IBOutlet weak var mapView: MKMapView!
 #warning("TODO: get contacts and display on map")
-    private var contactModels = [ContactModel]()
+    var contactModels = [ContactModel]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        https://stackoverflow.com/questions/58565004/how-can-i-turn-the-mkmapview-for-dark-mode
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .dark
-        }
+    override func viewWillAppear(_ animated: Bool) {
+                API.shared.getRandomContacts{ [weak self] result in
+                     switch result {
+                     case .success(let contacts):
+                          self?.contactModels = contacts.compactMap({
+                               ContactModel(
+                                    firstName: $0.name.first,
+                                    lastName: $0.name.last,
+                                    age: $0.dob.age,
+                                    date: $0.dob.date,
+                                    city: $0.location.city,
+                                    state: $0.location.state,
+                                    postcode: $0.location.postcode,
+                                    latitude: $0.location.coordinates.latitude,
+                                    longitude: $0.location.coordinates.latitude,
+                                    cell: $0.cell,
+                                    email: $0.email,
+                                    imgMedium: $0.picture.medium,
+                                    imgLarge: $0.picture.large,
+                                    imgThumb: $0.picture.thumbnail
+
+                               )})
+    
+                     case .failure(let error):
+                          print(error)
+                     }
+                    
+                    for contactModel in self!.contactModels {
+                        let contactCoordinates = CLLocationCoordinate2D(latitude: contactModel.latitude.toDouble(), longitude: contactModel.longitude.toDouble())
+                        let contactLocation = ContactLocation(name: contactModel.firstName, coordinate: contactCoordinates)
+                        self!.mapView.addAnnotation(contactLocation)
+                        self!.mapView.addAnnotations([contactLocation])
+
+                    }
+                }
+    
+
         
         // Custom Map Annotation Pin
         // https://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation
@@ -38,42 +69,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                     mapView.addAnnotations([contactLocation])
             
         }
-        
-        
-        //
-        //        API.shared.getRandomContacts{ [weak self] result in
-        //             switch result {
-        //             case .success(let contacts):
-        //                  self?.contactModels = contacts.compactMap({
-        //
-        //                       ContactModel(
-        //                            firstName: $0.name.first,
-        //                            lastName: $0.name.last,
-        //                            age: $0.dob.age,
-        //                            date: $0.dob.date,
-        //                            city: $0.location.city,
-        //                            state: $0.location.state,
-        //                            postcode: $0.location.postcode,
-        //                            latitude: $0.location.coordinates.latitude,
-        //                            longitude: $0.location.coordinates.latitude,
-        //                            cell: $0.cell,
-        //                            email: $0.email,
-        //                            imgMedium: $0.picture.medium,
-        //                            imgLarge: $0.picture.large,
-        //                            imgThumb: $0.picture.thumbnail
-        //
-        //                       )})
-        //
-        //                 DispatchQueue.main.async {
-        //                     <#code#>
-        //                 }
-        //             case .failure(let error):
-        //                  print(error)
-        //             }
-        //        }
-
-        //
-        
         
         
         

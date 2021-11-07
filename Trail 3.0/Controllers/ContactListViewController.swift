@@ -11,8 +11,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
     
     
 #warning("TODO: Lag egen funksjon for å lagre bilder")
-    
-    private var contactModels = [ContactModel]()
+    var contactModels = [ContactModel]()
     var selectedContact: ContactModel?
     
      override func viewWillAppear(_ animated: Bool) {
@@ -49,44 +48,12 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
               }
           }
           
+          // https://stackoverflow.com/questions/27651507/passing-data-between-tab-viewed-controllers-in-swift
+          let navController = self.tabBarController!.viewControllers![1] as! UINavigationController
+          let vc = navController.topViewController as! MapViewController
+          vc.contactModels = contactModels
+          
      }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.navigationItem.setHidesBackButton(true, animated: true)
-//        
-//        API.shared.getRandomContacts{ [weak self] result in
-//            switch result {
-//            case .success(let contacts):
-//                self?.contactModels = contacts.compactMap({
-//                    
-//                    ContactModel(
-//                        firstName: $0.name.first,
-//                        lastName: $0.name.last,
-//                        age: $0.dob.age,
-//                        date: $0.dob.date,
-//                        city: $0.location.city,
-//                        state: $0.location.state,
-//                        postcode: $0.location.postcode,
-//                        latitude: $0.location.coordinates.latitude,
-//                        longitude: $0.location.coordinates.latitude,
-//                        cell: $0.cell,
-//                        email: $0.email,
-//                        imgMedium: $0.picture.medium,
-//                        imgLarge: $0.picture.large,
-//                        imgThumb: $0.picture.thumbnail
-//                        
-//                    )})
-//                
-//                DispatchQueue.main.async {
-//                    self?.tableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//        
-//        
-//    }
     
 #warning("TODO: Fix this")
     private func tabBar(_ tabBar: UITabBar, didSelect navigationController: UINavigationController) {

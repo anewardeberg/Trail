@@ -22,23 +22,32 @@ class EditContactViewController: UIViewController {
 
     @IBAction func saveContactInfoButtonWasTapped(_ sender: Any) {
         if let contactFirstName = self.firstNameTextField.text {
-            contact?.firstName = contactFirstName
+            if contactFirstName != "" {
+                contact?.firstName = contactFirstName
+            }
         }
         if let contactLastName = self.lastNameTextField.text {
-            contact?.lastName = contactLastName
+            if contactLastName != "" {
+                contact?.lastName = contactLastName
+            }
         }
         if let contactCity = self.cityTextField.text {
-            contact?.city = contactCity
+            if contactCity != "" {
+                contact?.city = contactCity
+            }
         }
         if let contactEmail = self.emailTextField.text {
-            contact?.email = contactEmail
+            if contactEmail != "" {
+                contact?.email = contactEmail
+            }
         }
         if let contactCell = self.cellTextField.text {
-            contact?.cell = contactCell
+            if contactCell != "" {
+                contact?.cell = contactCell
+            }
         }
         
         #warning("change age dynamically to date picked")
-        contact?.date = birthdayDatePicker.date.formatDateToString(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         
         print(contact?.firstName)
         print(lastNameTextField.text)
@@ -46,6 +55,7 @@ class EditContactViewController: UIViewController {
         print(cellTextField.text)
         print(emailTextField.text)
         print(birthdayDatePicker.date)
+        
         self.performSegue(withIdentifier: "saveEditedContact", sender: self)
     }
     

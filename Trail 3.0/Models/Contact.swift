@@ -12,7 +12,6 @@ struct Info: Codable {
     let seed: String
 }
 
-
 struct Contact: Codable {
     let gender: String
     let name: Name
@@ -32,8 +31,7 @@ struct Dob: Codable {
 
 struct ID: Codable {
     let name: String
-    #warning("implement id value in contactmodel")
-//    let value: String
+    let value: String
 }
 
 struct Location: Codable {

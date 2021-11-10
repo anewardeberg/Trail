@@ -1,4 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contact" representedClassName="Contact" syncable="YES">
+        <attribute name="cell" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="nat" optional="YES" attributeType="String"/>
+        <relationship name="contactInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactInfo" inverseName="contact" inverseEntity="ContactInfo"/>
+        <relationship name="dob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dob" inverseName="contact" inverseEntity="Dob"/>
+        <relationship name="id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ID" inverseName="contact" inverseEntity="ID"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="contact" inverseEntity="Location"/>
+        <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Name" inverseName="contact" inverseEntity="Name"/>
+        <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Picture" inverseName="contact" inverseEntity="Picture"/>
+    </entity>
+    <entity name="ContactInfo" representedClassName="ContactInfo" syncable="YES">
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="contactInfo" inverseEntity="Contact"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Info" inverseName="contactInfo" inverseEntity="Info"/>
+    </entity>
+    <entity name="Coordinates" representedClassName="Coordinates" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="coordinates" inverseEntity="Location"/>
+    </entity>
+    <entity name="Dob" representedClassName="Dob" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="dob" inverseEntity="Contact"/>
+    </entity>
+    <entity name="ID" representedClassName="ID" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="id" inverseEntity="Contact"/>
+    </entity>
+    <entity name="Info" representedClassName="Info" syncable="YES">
+        <attribute name="seed" optional="YES" attributeType="String"/>
+        <relationship name="contactInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactInfo" inverseName="info" inverseEntity="ContactInfo"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="postcode" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="location" inverseEntity="Contact"/>
+        <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Coordinates" inverseName="location" inverseEntity="Coordinates"/>
+    </entity>
+    <entity name="Name" representedClassName="Name" syncable="YES">
+        <attribute name="first" optional="YES" attributeType="String"/>
+        <attribute name="last" optional="YES" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="name" inverseEntity="Contact"/>
+    </entity>
+    <entity name="Picture" representedClassName="Picture" syncable="YES">
+        <attribute name="large" optional="YES" attributeType="String"/>
+        <attribute name="medium" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="picture" inverseEntity="Contact"/>
+    </entity>
+    <elements>
+        <element name="Contact" positionX="-13472.11505126953" positionY="-4632.077285766602" width="128" height="193"/>
+        <element name="ContactInfo" positionX="-13107.18176269531" positionY="-4698.841812133789" width="128" height="73"/>
+        <element name="Coordinates" positionX="-13612.44107055664" positionY="-4083.94189453125" width="128" height="88"/>
+        <element name="Dob" positionX="-13099.73406982421" positionY="-4265.303466796875" width="128" height="88"/>
+        <element name="ID" positionX="-13047.96734619141" positionY="-4110.227416992188" width="128" height="88"/>
+        <element name="Info" positionX="-13153.90747070313" positionY="-4517.742935180664" width="128" height="73"/>
+        <element name="Location" positionX="-13441.60955810546" positionY="-4232.265197753906" width="128" height="133"/>
+        <element name="Name" positionX="-13682.24853515625" positionY="-4240.455413818359" width="128" height="88"/>
+        <element name="Picture" positionX="-13167.91561889648" positionY="-4391.979949951171" width="128" height="103"/>
+    </elements>
 </model>

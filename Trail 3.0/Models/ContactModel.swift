@@ -19,6 +19,7 @@ class ContactModel{
     let latitude: String
     let longitude: String
     var cell: String
+    var id: String
     var email: String
     let imgMedium: String
     let imgLarge: String
@@ -35,6 +36,7 @@ class ContactModel{
         latitude: String,
         longitude: String,
         cell: String,
+        id: String,
         email: String,
         imgMedium: String,
         imgLarge: String,
@@ -50,6 +52,7 @@ class ContactModel{
         self.latitude = latitude
         self.longitude = longitude
         self.cell = cell
+        self.id = id
         self.email = email
         self.imgMedium = imgMedium
         self.imgLarge = imgLarge

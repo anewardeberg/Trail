@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 // https://www.youtube.com/watch?v=OTcQnf6ziew
@@ -40,6 +41,17 @@ extension UIImageView {
             }
         }
         task.resume()
+    }
+}
+//https://stackoverflow.com/questions/52555913/save-complex-json-to-core-data-in-swift
+extension CodingUserInfoKey {
+    static let context = CodingUserInfoKey(rawValue: "context")!
+}
+
+extension JSONDecoder {
+    convenience init(context: NSManagedObjectContext) {
+        self.init()
+        self.contactInfo[.context] = context
     }
 }
 

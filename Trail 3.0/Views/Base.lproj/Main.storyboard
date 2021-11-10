@@ -469,7 +469,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="TpS-pU-ilT">
-                                                <rect key="frame" x="0.0" y="26.666666666666629" width="101" height="50"/>
+                                                <rect key="frame" x="0.0" y="26.666666666666629" width="107.33333333333333" height="50"/>
                                             </datePicker>
                                         </subviews>
                                         <constraints>

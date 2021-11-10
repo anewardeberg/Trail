@@ -34,6 +34,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                                 latitude: $0.location.coordinates.latitude,
                                 longitude: $0.location.coordinates.longitude,
                                 cell: $0.cell,
+                                id: $0.id.value,
                                 email: $0.email,
                                 imgMedium: $0.picture.medium,
                                 imgLarge: $0.picture.large,

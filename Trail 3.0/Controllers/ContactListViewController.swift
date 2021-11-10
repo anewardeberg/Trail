@@ -89,7 +89,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
             withIdentifier: "ContactCell",
             for: indexPath
         )
-        cell.imageView?.loadImage(urlString: contactModels[indexPath.row].imgMedium)
+        cell.imageView?.loadImage2(urlString: contactModels[indexPath.row].imgMedium)
         cell.textLabel?.text = "\(contactModels[indexPath.row].firstName) \(contactModels[indexPath.row].lastName)"
         
         return cell

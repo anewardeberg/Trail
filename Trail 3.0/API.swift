@@ -51,5 +51,4 @@ final class API {
         task.resume()
     }
     
-    #warning("TODO: setSeed function")
 }

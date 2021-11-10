@@ -2,18 +2,17 @@
 
 import Foundation
 
-// MARK: - Contact
 struct ContactInfo: Codable {
     let results: [Contact]
     let info: Info
 }
 
-// MARK: - Info
+
 struct Info: Codable {
     let seed: String
 }
 
-// MARK: - Result
+
 struct Contact: Codable {
     let gender: String
     let name: Name
@@ -26,36 +25,32 @@ struct Contact: Codable {
     let nat: String
 }
 
-// MARK: - Dob
 struct Dob: Codable {
     let date: String
     let age: Int
 }
 
-// MARK: - ID
 struct ID: Codable {
     let name: String
+    #warning("implement id value in contactmodel")
 //    let value: String
 }
 
-// MARK: - Location
 struct Location: Codable {
     let city, state, country: String
     let postcode: String
     let coordinates: Coordinates
 }
 
-// MARK: - Coordinates
 struct Coordinates: Codable {
     let latitude, longitude: String
 }
 
-// MARK: - Name
 struct Name: Codable {
     let first: String
     let last: String
 }
-// MARK: - Picture
+
 struct Picture: Codable {
     let large, medium, thumbnail: String
 }

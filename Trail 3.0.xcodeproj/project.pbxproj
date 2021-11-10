@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE15C0C427340CD200B06446 /* SettingsViewController.swift */; };
 		BE1FFACE2735B6F10098FCCB /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */; };
+		BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49921C273BAC7C002351EF /* ModelManager.swift */; };
 		BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BB27319C30000A8221 /* AppDelegate.swift */; };
 		BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BD27319C30000A8221 /* SceneDelegate.swift */; };
 		BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BF27319C30000A8221 /* ContactListViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		BE15C0C427340CD200B06446 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		BE49921C273BAC7C002351EF /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		BECBA6B827319C30000A8221 /* Trail 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trail 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECBA6BB27319C30000A8221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BECBA6BD27319C30000A8221 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				BECBA6BD27319C30000A8221 /* SceneDelegate.swift */,
 				BECBA6CC27319C33000A8221 /* Info.plist */,
 				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
+				BE49921C273BAC7C002351EF /* ModelManager.swift */,
 			);
 			path = "Trail 3.0";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			files = (
 				BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */,
 				BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */,
+				BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */,
 				BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */,
 				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,
 				BECBA6F327319FDF000A8221 /* Contact.swift in Sources */,

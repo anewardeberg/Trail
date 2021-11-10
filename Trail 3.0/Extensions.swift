@@ -27,6 +27,20 @@ extension UIImageView {
             }
         }
     }
+    
+    func loadImage2(urlString: String) {
+        let task = URLSession.shared.dataTask(with: URL.init(string: urlString)!) { (data, response, error) in
+            print(error)
+            print(response)
+            
+            if let image = UIImage(data: data!) {
+                DispatchQueue.main.async {
+                    self.image = image
+                }
+            }
+        }
+        task.resume()
+    }
 }
 
 extension Date {

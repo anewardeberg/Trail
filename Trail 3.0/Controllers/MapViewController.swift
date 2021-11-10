@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                                 state: $0.location.state,
                                 postcode: $0.location.postcode,
                                 latitude: $0.location.coordinates.latitude,
-                                longitude: $0.location.coordinates.latitude,
+                                longitude: $0.location.coordinates.longitude,
                                 cell: $0.cell,
                                 email: $0.email,
                                 imgMedium: $0.picture.medium,

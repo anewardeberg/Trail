@@ -45,6 +45,8 @@ class ContactDetailViewController: UIViewController {
     }
     
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
+        print(contactLatitude)
+        print(contactLongitude)
         self.performSegue(withIdentifier: "showUserOnMap", sender: self)
     }
     

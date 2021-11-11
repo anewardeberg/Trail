@@ -12,11 +12,13 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     var contactLatitude: String?
     var contactLongitude: String?
     var contactImageURL: String?
+
     
     @IBOutlet weak var mapView: MKMapView!
     var contactModels = [ContactModel]()
     
     override func viewWillAppear(_ animated: Bool) {
+        
         mapView.delegate = self
         if (tabBarController?.selectedIndex == 1) {
             API.shared.getRandomContacts{ [weak self] result in
@@ -62,9 +64,11 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         // https://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation
         
         if let contactLatitude = contactLatitude {
+            print(contactLatitude)
+            print(contactLongitude)
             let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
-            let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
-            mapView.setRegion(mapView.regionThatFits(region), animated: true)
+            let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
+            mapView.setRegion(region, animated: true)
             let contactLocation = ContactLocation(name: "User", coordinate: contactCoordinates)
     //                mapView.setCenter(contactCoordinates, animated: true)
                     mapView.addAnnotation(contactLocation)

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ContactDetailViewController: UIViewController {
-    var contact: ContactModel?
+    var contact: ContactStorage?
     var contactLatitude: String?
     var contactLongitude: String?
     var contactImageURL: String?
@@ -62,6 +62,8 @@ class ContactDetailViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
             #warning("TODO: Implement functionality")
             print("==== CONTACT DELETED")
+            ModelManager.sharedManager.persistentContainer.viewContext.delete(self.contact!)
+            ModelManager.sharedManager.saveContext()
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

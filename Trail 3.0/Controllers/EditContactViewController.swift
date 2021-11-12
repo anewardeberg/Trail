@@ -10,7 +10,7 @@ import UIKit
 
 //https://developer.apple.com/forums/thread/101483
 class EditContactViewController: UIViewController {
-    var contact: ContactModel?
+    var contact: ContactStorage?
     var activeTextField = UITextField()
 
     @IBOutlet weak var firstNameTextField: UITextField!

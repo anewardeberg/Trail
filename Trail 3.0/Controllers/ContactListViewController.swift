@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactListViewController: UITableViewController, UITabBarDelegate {
      
      
 #warning("TODO: Lag egen funksjon for å lagre bilder")
+     var contactList = [ContactStorage]()
      var contactModels = [ContactModel]()
-     var selectedContact: ContactModel?
+     var selectedContact: ContactStorage?
      
      override func viewWillAppear(_ animated: Bool) {
           self.navigationItem.setHidesBackButton(true, animated: true)
@@ -51,6 +53,17 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                }
           }
           
+          let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+          
+          ModelManager.sharedManager.persistentContainer.viewContext.perform {
+               do {
+                    let results = try fetchRequest.execute()
+                    self.contactList = results
+               } catch {
+                    print(error)
+               }
+          }
+          
           // https://stackoverflow.com/questions/27651507/passing-data-between-tab-viewed-controllers-in-swift
           let navController = self.tabBarController!.viewControllers![1] as! UINavigationController
           let vc = navController.topViewController as! MapViewController
@@ -83,7 +96,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
      //     }
      
      override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return contactModels.count
+          return contactList.count
      }
      
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,14 +105,14 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                withIdentifier: "ContactCell",
                for: indexPath
           )
-          cell.imageView?.loadImage2(urlString: contactModels[indexPath.row].imgMedium)
-          cell.textLabel?.text = "\(contactModels[indexPath.row].firstName) \(contactModels[indexPath.row].lastName)"
+          cell.imageView?.loadImage2(urlString: contactList[indexPath.row].imgMedium)
+          cell.textLabel?.text = "-\(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
           
           return cell
      }
      
      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          selectedContact = contactModels[indexPath.row]
+          selectedContact = contactList[indexPath.row]
           
           self.performSegue(withIdentifier: "goToContactDetail", sender: self)
           

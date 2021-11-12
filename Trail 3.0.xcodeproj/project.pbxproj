@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0C7EF5273EEA1C00A78BDD /* ContactStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */; };
 		BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE15C0C427340CD200B06446 /* SettingsViewController.swift */; };
 		BE1FFACE2735B6F10098FCCB /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */; };
 		BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49921C273BAC7C002351EF /* ModelManager.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStorage.swift; sourceTree = "<group>"; };
 		BE15C0C427340CD200B06446 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		BE49921C273BAC7C002351EF /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -129,9 +131,9 @@
 				BECBA6F127319F72000A8221 /* Views */,
 				BECBA6F027319F67000A8221 /* Controllers */,
 				BECBA6BB27319C30000A8221 /* AppDelegate.swift */,
-				BECBA6FC27326FDE000A8221 /* Assets.xcassets */,
 				BECBA6BD27319C30000A8221 /* SceneDelegate.swift */,
 				BECBA6CC27319C33000A8221 /* Info.plist */,
+				BECBA6FC27326FDE000A8221 /* Assets.xcassets */,
 				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
 				BE49921C273BAC7C002351EF /* ModelManager.swift */,
 			);
@@ -161,6 +163,7 @@
 				BECBA6F227319FDF000A8221 /* Contact.swift */,
 				BECBA6F62731A04F000A8221 /* ContactModel.swift */,
 				BEFE930A2732F1260003C4B6 /* ContactLocation.swift */,
+				BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0C7EF5273EEA1C00A78BDD /* ContactStorage.swift in Sources */,
 				BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */,
 				BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */,
 				BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */,

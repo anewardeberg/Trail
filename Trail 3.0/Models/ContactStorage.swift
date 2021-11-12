@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-public class ContactStore: NSManagedObject {
+public class ContactStorage: NSManagedObject {
     @NSManaged var firstName: String
     @NSManaged var lastName: String
     @NSManaged var age: Int
@@ -24,5 +24,31 @@ public class ContactStore: NSManagedObject {
     @NSManaged var imgMedium: String
     @NSManaged var imgLarge: String
     @NSManaged var imgThumb: String
-    
+}
+
+extension ContactStorage {
+    static func saveContacts(contacts: [Contact], context: NSManagedObjectContext) {
+        for contact in contacts {
+            let contactEntity = ContactStorage(context: context)
+            
+            contactEntity.firstName = contact.name.first
+            contactEntity.lastName = contact.name.last
+            contactEntity.age = contact.dob.age
+            contactEntity.date = contact.dob.date
+            contactEntity.city = contact.location.city
+            contactEntity.state = contact.location.state
+            contactEntity.postcode = contact.location.postcode
+            contactEntity.latitude = contact.location.coordinates.latitude
+            contactEntity.longitude = contact.location.coordinates.longitude
+            contactEntity.cell = contact.cell
+            contactEntity.id = contact.id.value
+            contactEntity.email = contact.email
+            contactEntity.imgMedium = contact.picture.medium
+            contactEntity.imgLarge = contact.picture.large
+            contactEntity.imgThumb = contact.picture.thumbnail
+            
+        }
+        
+        ModelManager.sharedManager.saveContext()
+    }
 }

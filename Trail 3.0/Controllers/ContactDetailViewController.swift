@@ -24,6 +24,29 @@ class ContactDetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        print("==== VIEW DID LOAD")
+        super.viewDidLoad()
+        if let contact = contact {
+            
+            contactLatitude = contact.latitude
+            contactLongitude = contact.longitude
+            contactImageURL = contact.imgMedium
+            
+            
+            contactImageView.loadImage(urlString: contact.imgLarge)
+            nameLabel.text = "\(contact.firstName) \(contact.lastName)"
+            birthdayLabel.text = "\(contact.age) år (\(contact.date.formatISOStringToDate()))"
+            locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
+            cellLabel.text = "+47 \(contact.cell)"
+            mailLabel.text = contact.email
+            showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
+        }
+        
+        
+    }
+    
+    func viewWillAppear() {
+        print("==== VIEW DID APPEAR")
         super.viewDidLoad()
         if let contact = contact {
             
@@ -67,8 +90,7 @@ class ContactDetailViewController: UIViewController {
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            #warning("TODO: Implement functionality")  
-            print("==== ACTION CANCELLED")
+            
         }))
         
         present(refreshAlert, animated: true, completion: nil)

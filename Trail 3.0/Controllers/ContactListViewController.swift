@@ -15,21 +15,49 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
      var contactList = [ContactStorage]()
      var contactModels = [ContactModel]()
      var selectedContact: ContactStorage?
+     var entityIsEmpty = false
      
-     override func viewWillAppear(_ animated: Bool) {
-          self.navigationItem.setHidesBackButton(true, animated: true)
+     override func viewDidLoad() {
+          checkEntityIsEmpty()
+          super.viewDidLoad()
+          print("==== VIEW DID LOAD")
           
-          API.shared.getRandomContacts{ [weak self] result in
-               switch result {
-               case .success(let contacts):
-                    DispatchQueue.main.async {
-                         ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
-                         self?.tableView.reloadData()
+          if(entityIsEmpty) {
+               print("==== FROM FETCH API")
+               API.shared.getRandomContacts{ [weak self] result in
+                    switch result {
+                    case .success(let contacts):
+                         DispatchQueue.main.async {
+                              ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
+                              print("==== SAVED CONTACTS")
+                              self?.tableView.reloadData()
+                         }
+                    case .failure(let error):
+                         print(error)
                     }
-               case .failure(let error):
-                    print(error)
+               }
+          } else {
+               print("==== FROM CORE DATA")
+               let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+               
+               ModelManager.sharedManager.persistentContainer.viewContext.perform {
+                    do {
+                         let results = try fetchRequest.execute()
+                         self.contactList = results
+                         self.tableView.reloadData()
+                    } catch {
+                         print(error)
+     #warning("alert user")
+                    }
                }
           }
+          
+     }
+     
+     override func viewWillAppear(_ animated: Bool) {
+          checkEntityIsEmpty()
+          print("==== VIEW DID APPEAR")
+          self.navigationItem.setHidesBackButton(true, animated: true)
           
           let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
           
@@ -37,8 +65,10 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                do {
                     let results = try fetchRequest.execute()
                     self.contactList = results
+                    self.tableView.reloadData()
                } catch {
                     print(error)
+#warning("alert user")
                }
           }
           
@@ -47,6 +77,19 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           let vc = navController.topViewController as! MapViewController
           vc.contactModels = contactModels
           
+     }
+     
+     func checkEntityIsEmpty() {
+          var context = ModelManager.sharedManager.persistentContainer.viewContext
+          do {
+               var request = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+               let count = try context.count(for: request)
+               if count == 0 {
+                    entityIsEmpty = true
+               }
+          } catch {
+              entityIsEmpty = false
+          }
      }
      
      
@@ -84,7 +127,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                for: indexPath
           )
           cell.imageView?.loadImage2(urlString: contactList[indexPath.row].imgMedium)
-          cell.textLabel?.text = "\(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
+          cell.textLabel?.text = "\(indexPath.row) \(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
           
           return cell
      }

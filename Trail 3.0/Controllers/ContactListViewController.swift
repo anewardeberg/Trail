@@ -22,28 +22,6 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           API.shared.getRandomContacts{ [weak self] result in
                switch result {
                case .success(let contacts):
-                    self?.contactModels = contacts.compactMap({
-                         
-                         ContactModel(
-                              firstName: $0.name.first,
-                              lastName: $0.name.last,
-                              age: $0.dob.age,
-                              date: $0.dob.date,
-                              city: $0.location.city,
-                              state: $0.location.state,
-                              postcode: $0.location.postcode,
-                              latitude: $0.location.coordinates.latitude,
-                              longitude: $0.location.coordinates.longitude,
-                              cell: $0.cell,
-                              id: $0.id.value,
-                              email: $0.email,
-                              imgMedium: $0.picture.medium,
-                              imgLarge: $0.picture.large,
-                              imgThumb: $0.picture.thumbnail
-                              
-                         )})
-                    
-                    
                     DispatchQueue.main.async {
                          ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
                          self?.tableView.reloadData()
@@ -106,7 +84,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                for: indexPath
           )
           cell.imageView?.loadImage2(urlString: contactList[indexPath.row].imgMedium)
-          cell.textLabel?.text = "-\(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
+          cell.textLabel?.text = "\(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
           
           return cell
      }

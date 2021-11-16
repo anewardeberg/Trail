@@ -14,6 +14,7 @@ class ContactDetailViewController: UIViewController {
     var contactLongitude: String?
     var contactImageURL: String?
     var contactHasBirthday = false
+    let birthdayEmojiArray = ["🎉", "⭐️", "🎂", "🧁", "🎊"]
     
     
     @IBOutlet weak var contactImageView: UIImageView!
@@ -23,9 +24,15 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var showUserOnMapButton: UIButton!
+    @IBOutlet weak var birthdayEmojiLabel: UILabel!
     
     
     override func viewDidLoad() {
+        birthdayEmojiLabel.alpha = 0
+        checkBirthday()
+        if(contactHasBirthday) {
+            rainBirthdayEmojis()
+        }
         print("==== [CONTACT DETAIL] VIEW DID LOAD")
         super.viewDidLoad()
         if let contact = contact {
@@ -50,7 +57,13 @@ class ContactDetailViewController: UIViewController {
     
     func viewWillAppear() {
         print("==== [CONTACT DETAIL] VIEW DID APPEAR")
+        checkBirthday()
+        if(contactHasBirthday) {
+            rainBirthdayEmojis()
+        }
         if let contact = contact {
+            checkBirthday()
+            rainBirthdayEmojis()
             
             contactLatitude = contact.latitude
             contactLongitude = contact.longitude
@@ -74,10 +87,35 @@ class ContactDetailViewController: UIViewController {
         let birthday = contact?.date.toDate(dateFormat: "MM/dd/yyyy")
         if contact != nil {
             if Calendar.current.isDateInThisWeek(birthday!) {
-                
+                birthdayEmojiLabel.alpha = 1
+                contactHasBirthday = true
             }
         }
     }
+    
+    func rainBirthdayEmojis() {
+        for n in 1...20 {
+            let randomInt = Int.random(in: 1..<400)
+            let randomDuration = Double.random(in: 1...4)
+            let animateEmoji = UILabel.init(frame: CGRect.init(x: randomInt, y: 0, width: 40, height: 40))
+            animateEmoji.text = birthdayEmojiArray.randomElement()
+            view.addSubview(animateEmoji)
+            
+            UIView.animate(withDuration: randomDuration,
+                           delay: 0,
+                           options: [.curveEaseIn, .repeat, .beginFromCurrentState],
+                           animations: {
+                var frame = animateEmoji.frame
+                frame.origin.y += 700
+                animateEmoji.frame = frame
+                
+            }, completion: nil)
+            
+        }
+        
+    }
+    
+    
     
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "showUserOnMap", sender: self)

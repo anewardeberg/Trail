@@ -270,12 +270,20 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzQ-H0-hOg">
+                                <rect key="frame" x="223" y="159.66666666666666" width="47" height="50.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BrD-gS-Sbf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="A0W-i6-MgX" firstAttribute="leading" secondItem="BrD-gS-Sbf" secondAttribute="leading" constant="120" id="1OS-bo-NAx"/>
                             <constraint firstItem="CQZ-8f-IGt" firstAttribute="top" secondItem="A0W-i6-MgX" secondAttribute="bottom" constant="50" id="CbZ-Xb-v16"/>
+                            <constraint firstItem="A0W-i6-MgX" firstAttribute="bottom" secondItem="NzQ-H0-hOg" secondAttribute="bottom" id="Nen-SF-z45"/>
+                            <constraint firstItem="A0W-i6-MgX" firstAttribute="trailing" secondItem="NzQ-H0-hOg" secondAttribute="trailing" id="RMy-li-A5M"/>
                             <constraint firstItem="1tq-iu-7o6" firstAttribute="centerX" secondItem="vCq-Ni-PlH" secondAttribute="centerX" id="V2l-3S-nXL"/>
                             <constraint firstItem="CQZ-8f-IGt" firstAttribute="leading" secondItem="BrD-gS-Sbf" secondAttribute="leading" constant="30" id="WRm-TV-XG2"/>
                             <constraint firstItem="A0W-i6-MgX" firstAttribute="centerX" secondItem="vCq-Ni-PlH" secondAttribute="centerX" id="oop-MT-ka9"/>
@@ -297,6 +305,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthdayEmojiLabel" destination="NzQ-H0-hOg" id="ALf-jF-AoF"/>
                         <outlet property="birthdayLabel" destination="l4D-XD-Jl2" id="YrK-wl-w2H"/>
                         <outlet property="cellLabel" destination="zss-Ny-sSS" id="tkH-PI-ba0"/>
                         <outlet property="contactImageView" destination="A0W-i6-MgX" id="bYX-Kw-E2I"/>

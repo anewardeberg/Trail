@@ -19,55 +19,64 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         apiSeedTextField.delegate = self
         apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
         
-//      https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
+        //      https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
         let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
         
         ModelManager.sharedManager.persistentContainer.viewContext.perform {
-             do {
-                  let results = try fetchRequest.execute()
-                  self.contactList = results
-                 print("==== [SETTINGS] CONTACTS FETCHED")
-             } catch {
-                  print(error)
-             }
+            do {
+                let results = try fetchRequest.execute()
+                self.contactList = results
+                print("==== [SETTINGS] CONTACTS FETCHED")
+            } catch {
+                print(error)
+            }
         }
     }
     
     @IBAction func saveSeedButtonWasTapped(_ sender: Any) {
         apiSeedTextField.endEditing(true)
-        API.shared.setApiSeed(seedInput: apiSeedTextField.text!)
-        apiSeedTextField.text = ""
-        apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
-        
-        for contact in contactList {
-            if(contact.isEdited == false) {
-                ModelManager.sharedManager.persistentContainer.viewContext.delete(contact)
-                print("==== [SETTINGS] CONTACT DELETED")
-                ModelManager.sharedManager.saveContext()
+        let apiSeedString = apiSeedTextField.text
+        let trimmedApiSeedString = apiSeedString?.removeWhitespaces()
+        print("==== [SETTINGS]")
+        print(trimmedApiSeedString)
+        if(trimmedApiSeedString == "") {
+            let alert = UIAlertController(title: "Error saving seed:", message: "Invalid or no input", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        } else {
+            API.shared.setApiSeed(seedInput: trimmedApiSeedString!)
+            apiSeedTextField.text = ""
+            apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
+            
+            for contact in contactList {
+                if(contact.isEdited == false) {
+                    ModelManager.sharedManager.persistentContainer.viewContext.delete(contact)
+                    print("==== [SETTINGS] CONTACT DELETED")
+                    ModelManager.sharedManager.saveContext()
+                }
             }
+            API.shared.getRandomContacts{ result in
+                switch result {
+                case .success(let contacts):
+                    DispatchQueue.main.async {
+                        ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
+                        print("==== [SETTINGS] FETCHED AND SAVED NEW CONTACTS")
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            let alert = UIAlertController(title: "Seed saved successfully!", message: "Seed: \(API.shared.seed)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
-        API.shared.getRandomContacts{ result in
-             switch result {
-             case .success(let contacts):
-                  DispatchQueue.main.async {
-                       ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
-                       print("==== [SETTINGS] FETCHED AND SAVED NEW CONTACTS")
-                  }
-             case .failure(let error):
-                  print(error)
-             }
-        }
-        let alert = UIAlertController(title: "Seed saved successfully!", message: "Seed: \(API.shared.seed)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: nil))
-        self.present(alert, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        apiSeedTextField.endEditing(true)
-        print(apiSeedTextField.text!)
+        textField.resignFirstResponder()
         return true
     }
     
@@ -81,8 +90,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-           textField.placeholder = "Current seed: \(API.shared.seed)"
-   //        self.performSegue(withIdentifier: "upDateSeedAndGoToContactList", sender: self)
-       }
+        textField.placeholder = "Current seed: \(API.shared.seed)"
+    }
     
 }

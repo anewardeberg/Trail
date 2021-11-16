@@ -62,6 +62,10 @@ extension String {
         }
     }
     
+    func removeWhitespaces() -> String {
+        return self.components(separatedBy: .whitespaces).joined(separator: "")
+    }
+    
     func formatISOStringToDate() -> Date {
             let formatter = ISO8601DateFormatter()
             formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]

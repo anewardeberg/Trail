@@ -26,7 +26,6 @@ final class API {
     func setApiSeed(seedInput: String) {
         url = URL(string: "https://randomuser.me/api/?results=100&seed=\(seedInput)&nat=no")
         self.seed = seedInput
-        print(url!)
     }
     
     public func getRandomContacts(completion: @escaping (Swift.Result<[Contact], Error>) -> Void) {

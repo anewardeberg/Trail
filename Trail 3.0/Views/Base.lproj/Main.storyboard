@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -546,7 +545,7 @@
             </objects>
             <point key="canvasLocation" x="-691.304347826087" y="689.73214285714278"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="tJf-ci-LO5">
             <objects>
                 <viewController id="aQb-rq-fVL" customClass="SettingsViewController" customModule="Trail_3_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -554,6 +553,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trail_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Z0n-49-rMt">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXg-qX-waA">
                                 <rect key="frame" x="25" y="365" width="340" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -565,22 +567,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-3I-ObT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-3I-ObT">
                                 <rect key="frame" x="145" y="424" width="100" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="qgZ-By-gsM"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Save seed"/>
                                 <connections>
                                     <action selector="saveSeedButtonWasTapped:" destination="aQb-rq-fVL" eventType="touchUpInside" id="akT-od-E9F"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEs-1f-rsq"/>
-                        <color key="backgroundColor" name="MainColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Z0n-49-rMt" firstAttribute="leading" secondItem="cEs-1f-rsq" secondAttribute="leading" id="48Q-DF-dyR"/>
                             <constraint firstItem="zgU-3I-ObT" firstAttribute="top" secondItem="SXg-qX-waA" secondAttribute="bottom" constant="25" id="6rZ-uC-rLz"/>
+                            <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="Z0n-49-rMt" secondAttribute="trailing" id="OnP-HY-7xw"/>
                             <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="SXg-qX-waA" secondAttribute="trailing" constant="25" id="RG6-xg-C00"/>
                             <constraint firstItem="zgU-3I-ObT" firstAttribute="centerX" secondItem="3DH-uu-CHG" secondAttribute="centerX" id="g5e-QH-1l5"/>
                             <constraint firstItem="SXg-qX-waA" firstAttribute="centerY" secondItem="3DH-uu-CHG" secondAttribute="centerY" constant="-40" id="gSA-fE-M9j"/>
@@ -588,9 +592,11 @@
                             <constraint firstItem="SXg-qX-waA" firstAttribute="leading" secondItem="cEs-1f-rsq" secondAttribute="leading" constant="25" id="k4b-GB-b8Y"/>
                             <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="j0r-S1-HA5" secondAttribute="trailing" constant="165" id="mGz-T3-WwP"/>
                             <constraint firstItem="j0r-S1-HA5" firstAttribute="leading" secondItem="SXg-qX-waA" secondAttribute="leading" id="nc3-4j-EYw"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Z0n-49-rMt" secondAttribute="bottom" id="ueA-8O-dDF"/>
+                            <constraint firstItem="Z0n-49-rMt" firstAttribute="top" secondItem="3DH-uu-CHG" secondAttribute="top" id="zcK-hX-J1f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="LBV-iC-Qq7"/>
+                    <navigationItem key="navigationItem" id="LBV-iC-Qq7"/>
                     <connections>
                         <outlet property="apiSeedTextField" destination="SXg-qX-waA" id="V1c-HA-XZH"/>
                         <segue destination="pcY-gu-i2D" kind="show" identifier="upDateSeedAndGoToContactList" id="vOq-7U-HdH"/>
@@ -615,9 +621,7 @@
         <image name="person.crop.rectangle.stack" catalog="system" width="128" height="122"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
-        <namedColor name="MainColor">
-            <color red="0.76099997758865356" green="0.80000001192092896" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="trail_gradient" width="1125" height="2436"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -42,30 +42,47 @@ extension UIImageView {
 }
 
 extension Date {
-    func formatDateToString(format: String) -> String {
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = format
-        return dateformat.string(from: self)
-    }
-    
-    func checkBirthdayWeek() {
-        
+    func toString(format: String) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = format
+        return dateformatter.string(from: self)
     }
 }
 
 extension String {
-    func formatISOStringToDate() -> Date {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
-        let date = formatter.date(from: self)!
-        return date
+    func toDate(dateFormat: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        
+        if let stringAsDate = dateFormatter.date(from: self) {
+            return stringAsDate
+        } else {
+            print("could not convert to Date")
+            return Date()
+        }
     }
+    
+    func formatISOStringToDate() -> Date {
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
+            let date = formatter.date(from: self)!
+            return date
+        }
+         
      
     func toDouble() -> Double {
         let double = Double(self)!
         return double
     }
     
+}
+
+//https://stackoverflow.com/questions/29055654/swift-check-if-date-is-in-next-week-month-isdateinnextweek-isdateinnext
+extension Calendar {
+    private var currentDate: Date { return Date() }
+    func isDateInThisWeek(_ date: Date) -> Bool {
+        return isDate(date, equalTo: currentDate, toGranularity: .weekOfYear)
+      }
 }
 
 // https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift

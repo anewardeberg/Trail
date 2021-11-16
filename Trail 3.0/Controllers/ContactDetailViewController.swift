@@ -13,6 +13,8 @@ class ContactDetailViewController: UIViewController {
     var contactLatitude: String?
     var contactLongitude: String?
     var contactImageURL: String?
+    var contactHasBirthday = false
+    
     
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -35,7 +37,8 @@ class ContactDetailViewController: UIViewController {
             
             contactImageView.loadImage(urlString: contact.imgLarge)
             nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date.formatISOStringToDate()))"
+            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
+            print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
             locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
             cellLabel.text = "+47 \(contact.cell)"
             mailLabel.text = contact.email
@@ -47,7 +50,6 @@ class ContactDetailViewController: UIViewController {
     
     func viewWillAppear() {
         print("==== [CONTACT DETAIL] VIEW DID APPEAR")
-        super.viewDidLoad()
         if let contact = contact {
             
             contactLatitude = contact.latitude
@@ -57,7 +59,8 @@ class ContactDetailViewController: UIViewController {
             
             contactImageView.loadImage(urlString: contact.imgLarge)
             nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date.formatISOStringToDate()))"
+            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
+            print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
             locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
             cellLabel.text = "+47 \(contact.cell)"
             mailLabel.text = contact.email
@@ -67,9 +70,16 @@ class ContactDetailViewController: UIViewController {
         
     }
     
+    func checkBirthday() {
+        let birthday = contact?.date.toDate(dateFormat: "MM/dd/yyyy")
+        if contact != nil {
+            if Calendar.current.isDateInThisWeek(birthday!) {
+                
+            }
+        }
+    }
+    
     @IBAction func showUserOnMapButtonWasTapped(_ sender: UIButton) {
-        print(contactLatitude)
-        print(contactLongitude)
         self.performSegue(withIdentifier: "showUserOnMap", sender: self)
     }
     
@@ -99,7 +109,7 @@ class ContactDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUserOnMap" {
             let destinationVC = segue.destination as! MapViewController
-            if let contact = contact {
+            if contact != nil {
                 destinationVC.contactLatitude = contactLatitude
                 destinationVC.contactLongitude = contactLongitude
                 destinationVC.contactImageURL = contactImageURL
@@ -113,5 +123,6 @@ class ContactDetailViewController: UIViewController {
             }
         }
     }
+    
 }
 

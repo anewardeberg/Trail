@@ -32,7 +32,6 @@ struct Dob: Codable {
 
 struct ID: Codable {
     let name: String
-    #warning("implement id value in contactmodel")
     let value: String
 }
 

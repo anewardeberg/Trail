@@ -31,7 +31,7 @@ class EditContactViewController: UIViewController {
             cityTextField.placeholder = contact.city
             emailTextField.placeholder = contact.email
             cellTextField.placeholder = contact.cell
-            birthdayDatePicker.date = contact.date.formatISOStringToDate()
+            birthdayDatePicker.date = contact.date.toDate(dateFormat:"MM/dd/yyyy")
         }
         
         
@@ -77,7 +77,7 @@ class EditContactViewController: UIViewController {
     func updateBirthday() {
    
 
-        var birthday = birthdayDatePicker.date.formatDateToString(format: "yyyy-MM-dd")
+        var birthday = birthdayDatePicker.date.toString(format: "MM/dd/yyyy")
         contact.date = birthday
         print("==== [EDIT CONTACT] BIRTHDAY")
         print(birthday)

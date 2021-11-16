@@ -20,16 +20,16 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
      override func viewDidLoad() {
           checkEntityIsEmpty()
           super.viewDidLoad()
-          print("==== VIEW DID LOAD")
+          print("==== [CONTACT LIST] VIEW DID LOAD")
           
           if(entityIsEmpty) {
-               print("==== FROM FETCH API")
+               print("==== [CONTACT LIST] FROM FETCH API")
                API.shared.getRandomContacts{ [weak self] result in
                     switch result {
                     case .success(let contacts):
                          DispatchQueue.main.async {
                               ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
-                              print("==== SAVED CONTACTS")
+                              print("==== [CONTACT LIST] SAVED CONTACTS")
                               self?.tableView.reloadData()
                          }
                     case .failure(let error):
@@ -37,7 +37,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                     }
                }
           } else {
-               print("==== FROM CORE DATA")
+               print("==== [CONTACT LIST] FROM CORE DATA")
                let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
                
                ModelManager.sharedManager.persistentContainer.viewContext.perform {
@@ -56,7 +56,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
      
      override func viewWillAppear(_ animated: Bool) {
           checkEntityIsEmpty()
-          print("==== VIEW DID APPEAR")
+          print("==== [CONTACT LIST] VIEW DID APPEAR")
           self.navigationItem.setHidesBackButton(true, animated: true)
           
           let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
@@ -96,9 +96,9 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
 #warning("TODO: Fix this")
      private func tabBar(_ tabBar: UITabBar, didSelect navigationController: UINavigationController) {
           if navigationController.restorationIdentifier == "contactListNC"{
-               print("==== CONTACT LIST VIEW CONTROLLER")
+               print("==== [CONTACT LIST] CONTACT LIST VIEW CONTROLLER")
           } else if navigationController.restorationIdentifier == "mapNC" {
-               print("==== MAP VIEW CONTROLLER")
+               print("==== [CONTACT LIST] MAP VIEW CONTROLLER")
           }
      }
      

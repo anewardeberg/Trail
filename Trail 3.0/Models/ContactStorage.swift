@@ -24,6 +24,7 @@ public class ContactStorage: NSManagedObject {
     @NSManaged var imgMedium: String
     @NSManaged var imgLarge: String
     @NSManaged var imgThumb: String
+    @NSManaged var isEdited: Bool
 }
 
 extension ContactStorage {
@@ -46,6 +47,7 @@ extension ContactStorage {
             contactEntity.imgMedium = contact.picture.medium
             contactEntity.imgLarge = contact.picture.large
             contactEntity.imgThumb = contact.picture.thumbnail
+            contactEntity.isEdited = false
             
         }
         

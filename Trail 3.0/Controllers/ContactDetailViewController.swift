@@ -24,7 +24,7 @@ class ContactDetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        print("==== VIEW DID LOAD")
+        print("==== [CONTACT DETAIL] VIEW DID LOAD")
         super.viewDidLoad()
         if let contact = contact {
             
@@ -46,7 +46,7 @@ class ContactDetailViewController: UIViewController {
     }
     
     func viewWillAppear() {
-        print("==== VIEW DID APPEAR")
+        print("==== [CONTACT DETAIL] VIEW DID APPEAR")
         super.viewDidLoad()
         if let contact = contact {
             
@@ -83,7 +83,7 @@ class ContactDetailViewController: UIViewController {
         //  https://stackoverflow.com/questions/25511945/swift-alert-view-with-ok-and-cancel-which-button-tapped
         let refreshAlert = UIAlertController(title: "Delete contact?", message: "This action cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
-            print("==== CONTACT DELETED")
+            print("==== [CONTACT DETAIL] CONTACT DELETED")
             ModelManager.sharedManager.persistentContainer.viewContext.delete(self.contact!)
             ModelManager.sharedManager.saveContext()
             self.navigationController?.popViewController(animated: true)

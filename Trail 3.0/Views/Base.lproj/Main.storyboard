@@ -469,7 +469,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="TpS-pU-ilT">
-                                                <rect key="frame" x="0.0" y="26.666666666666629" width="101" height="50"/>
+                                                <rect key="frame" x="0.0" y="26.666666666666629" width="107.66666666666667" height="50"/>
                                             </datePicker>
                                         </subviews>
                                         <constraints>
@@ -551,21 +551,34 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API seed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-S1-HA5">
-                                <rect key="frame" x="107.33333333333331" y="318" width="117.66666666666669" height="37"/>
+                                <rect key="frame" x="25" y="318" width="200" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-3I-ObT">
+                                <rect key="frame" x="145" y="424" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="qgZ-By-gsM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveSeedButtonWasTapped:" destination="aQb-rq-fVL" eventType="touchUpInside" id="akT-od-E9F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEs-1f-rsq"/>
                         <color key="backgroundColor" name="MainColor"/>
                         <constraints>
+                            <constraint firstItem="zgU-3I-ObT" firstAttribute="top" secondItem="SXg-qX-waA" secondAttribute="bottom" constant="25" id="6rZ-uC-rLz"/>
                             <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="SXg-qX-waA" secondAttribute="trailing" constant="25" id="RG6-xg-C00"/>
+                            <constraint firstItem="zgU-3I-ObT" firstAttribute="centerX" secondItem="3DH-uu-CHG" secondAttribute="centerX" id="g5e-QH-1l5"/>
                             <constraint firstItem="SXg-qX-waA" firstAttribute="centerY" secondItem="3DH-uu-CHG" secondAttribute="centerY" constant="-40" id="gSA-fE-M9j"/>
-                            <constraint firstItem="j0r-S1-HA5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cEs-1f-rsq" secondAttribute="leading" id="iVJ-3y-T45"/>
                             <constraint firstItem="SXg-qX-waA" firstAttribute="top" secondItem="j0r-S1-HA5" secondAttribute="bottom" constant="10" id="jjt-Rw-yIa"/>
                             <constraint firstItem="SXg-qX-waA" firstAttribute="leading" secondItem="cEs-1f-rsq" secondAttribute="leading" constant="25" id="k4b-GB-b8Y"/>
                             <constraint firstItem="cEs-1f-rsq" firstAttribute="trailing" secondItem="j0r-S1-HA5" secondAttribute="trailing" constant="165" id="mGz-T3-WwP"/>
+                            <constraint firstItem="j0r-S1-HA5" firstAttribute="leading" secondItem="SXg-qX-waA" secondAttribute="leading" id="nc3-4j-EYw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="LBV-iC-Qq7"/>

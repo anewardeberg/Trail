@@ -65,9 +65,7 @@ class EditContactViewController: UIViewController {
         }
         
         updateBirthday()
-        
-    
-        
+        contact.isEdited = true
         
         #warning("change age dynamically to date picked")
 
@@ -81,11 +79,11 @@ class EditContactViewController: UIViewController {
 
         var birthday = birthdayDatePicker.date.formatDateToString(format: "yyyy-MM-dd")
         contact.date = birthday
-        print("==== BIRTHDAY")
+        print("==== [EDIT CONTACT] BIRTHDAY")
         print(birthday)
         let timeInterval = birthdayDatePicker.date.timeIntervalSinceNow
         let age = abs(Int(timeInterval / 31556926.0))
-        print("==== AGE")
+        print("==== [EDIT CONTACT] AGE")
         print(age)
         contact.age = age
         ModelManager.sharedManager.saveContext()
@@ -108,18 +106,6 @@ class EditContactViewController: UIViewController {
             return true
         } else {
             return false
-        }
-    }
-
-//    https://www.codegrepper.com/code-examples/swift/xcode+how+to+know+which+textfield+is+selected
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let activeTextFieldText = self.activeTextField.text {
-                    print("Active textfield: \(activeTextField)")
-                    print("Active text field's text: \(activeTextFieldText)")
-                    return;
-              }
-        else {
-            print("==== SØREN DETTE FUNKET IKKE HELT")
         }
     }
     

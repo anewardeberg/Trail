@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         apiSeedTextField.delegate = self
         apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
         
@@ -36,6 +37,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveSeedButtonWasTapped(_ sender: Any) {
+        apiSeedTextField.endEditing(true)
         API.shared.setApiSeed(seedInput: apiSeedTextField.text!)
         apiSeedTextField.text = ""
         apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
@@ -44,9 +46,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             if(contact.isEdited == false) {
                 ModelManager.sharedManager.persistentContainer.viewContext.delete(contact)
                 print("==== [SETTINGS] CONTACT DELETED")
+                ModelManager.sharedManager.saveContext()
             }
         }
-        ModelManager.sharedManager.saveContext()
         API.shared.getRandomContacts{ result in
              switch result {
              case .success(let contacts):

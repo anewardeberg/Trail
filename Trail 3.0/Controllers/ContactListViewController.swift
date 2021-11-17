@@ -155,11 +155,6 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                     destinationVC.contact = selectedContact
                }
           }
-          
-          //         if segue.identifier == "goToMapView" {
-          //             let destinationVC = segue.destination as! UINavigationController
-          //             let targetController = destinationNC.navigationController?.topViewController
-          //         }
      }
      
      

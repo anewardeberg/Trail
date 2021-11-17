@@ -84,7 +84,7 @@ class ContactDetailViewController: UIViewController {
     }
     
     func checkBirthday() {
-        let birthday = contact?.date.toDate(dateFormat: "MM/dd/yyyy")
+        let birthday = contact?.date.toDate(dateFormat: "MM/dd")
         if contact != nil {
             if Calendar.current.isDateInThisWeek(birthday!) {
                 birthdayEmojiLabel.alpha = 1

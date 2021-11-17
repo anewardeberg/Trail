@@ -12,7 +12,11 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
      
      
 #warning("TODO: Lag egen funksjon for å lagre bilder")
-     var contactList = [ContactStorage]()
+     var contactList = [ContactStorage]() {
+          didSet {
+                contactList = contactList.sorted(by: {  $0.lastName < $1.lastName })
+             }
+     }
      var contactModels = [ContactModel]()
      var selectedContact: ContactStorage?
      var entityIsEmpty = false
@@ -91,6 +95,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
               entityIsEmpty = false
           }
      }
+     
      
      
 #warning("TODO: Fix this")

@@ -13,6 +13,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     var contactLatitude: String?
     var contactLongitude: String?
     var contactImageURL: String!
+    var selectedContact: ContactStorage?
+    var selectedContactCoordinates: CLLocationCoordinate2D?
     
     var contactList = [ContactStorage]()
     
@@ -69,6 +71,19 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         map.addAnnotation(pin)
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        selectedContactCoordinates = view.annotation?.coordinate
+        if control == view.rightCalloutAccessoryView {
+            for contact in contactList {
+                var contactLocation = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
+                if(selectedContactCoordinates?.latitude == contactLocation.latitude && selectedContactCoordinates?.longitude == contactLocation.longitude) {
+                    selectedContact = contact
+                }
+            }
+            performSegue(withIdentifier: "fromMapToContactDetail", sender: self)
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         var annotationView = map.dequeueReusableAnnotationView(withIdentifier: "custom")
@@ -76,6 +91,11 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
             annotationView?.canShowCallout = true
+            //            https://stackoverflow.com/questions/33053832/swift-perform-segue-from-map-annotation
+            var rightButton: AnyObject! = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            rightButton.title(for: UIControl.State.normal)
+            
+            annotationView!.rightCalloutAccessoryView = rightButton as! UIView
         } else {
             annotationView?.annotation = annotation
         }
@@ -97,5 +117,14 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromMapToContactDetail" {
+            let destinationVC = segue.destination as! ContactDetailViewController
+            if let selectedContact = selectedContact {
+                destinationVC.contact = selectedContact
+            }
+        }
     }
 }

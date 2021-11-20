@@ -539,6 +539,7 @@
                     <navigationItem key="navigationItem" id="Oyq-FU-2Wp"/>
                     <connections>
                         <outlet property="map" destination="k16-TY-5ca" id="8BP-n2-75t"/>
+                        <segue destination="SPr-Ue-goL" kind="showDetail" identifier="fromMapToContactDetail" id="Bnl-Qh-1OA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cw-DS-pq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -609,7 +610,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dq9-O3-T5W"/>
-        <segue reference="SSI-cm-qoP"/>
+        <segue reference="Bnl-Qh-1OA"/>
         <segue reference="vOq-7U-HdH"/>
     </inferredMetricsTieBreakers>
     <resources>

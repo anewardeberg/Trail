@@ -46,7 +46,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                 }
             }
             
-                
+            
         }
         
         if let contactLatitude = contactLatitude {
@@ -55,13 +55,12 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
             let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
             let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
             map.setRegion(region, animated: true)
-            let contactLocation = ContactLocation(name: "User", coordinate: contactCoordinates)
-            map.addAnnotation(contactLocation)
+            addCustomPin(coordinates: contactCoordinates, title: " ")
         }
         
     }
     
-//https://www.youtube.com/watch?v=DHpL8yz6ot0&t=619s
+    //https://www.youtube.com/watch?v=DHpL8yz6ot0&t=619s
     
     func addCustomPin(coordinates: CLLocationCoordinate2D, title: String) {
         let pin = MKPointAnnotation()
@@ -80,16 +79,18 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         } else {
             annotationView?.annotation = annotation
         }
+        
         getData(from: URL(string: contactImageURL)!) { data, response, error in
             guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { 
+            DispatchQueue.main.async() {
                 annotationView?.image = UIImage(data: data)
             }
         }
+        
         return annotationView
     }
     
-//    https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+    //    https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }

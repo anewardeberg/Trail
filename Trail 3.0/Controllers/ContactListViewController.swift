@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Trail 3.0
-//
-//  Created by Ane Wardeberg on 02/11/2021.
-//
-
 import UIKit
 import CoreData
 
@@ -105,7 +98,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                withIdentifier: "ContactCell",
                for: indexPath
           )
-          cell.imageView?.loadImage2(urlString: contactList[indexPath.row].imgMedium)
+          cell.imageView?.loadImage(urlString: contactList[indexPath.row].imgMedium)
           cell.textLabel?.text = "\(indexPath.row) \(contactList[indexPath.row].firstName) \(contactList[indexPath.row].lastName)"
           
           return cell

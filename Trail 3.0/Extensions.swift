@@ -1,10 +1,3 @@
-//
-//  Extensions.swift
-//  Trail 3.0
-//
-//  Created by Ane Wardeberg on 02/11/2021.
-//
-
 import Foundation
 import UIKit
 
@@ -13,22 +6,7 @@ import UIKit
 
 
 extension UIImageView {
-    func loadImage(urlString : String) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        DispatchQueue.global().async { [weak self] in
-            if let data  = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-    
-    func loadImage2(urlString: String) {
+    func loadImage(urlString: String) {
         let task = URLSession.shared.dataTask(with: URL.init(string: urlString)!) { (data, response, error) in
             
             if let image = UIImage(data: data!) {
@@ -48,14 +26,7 @@ extension Date {
         return dateformatter.string(from: self)
     }
     
-    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
-            calendar.isDate(self, equalTo: date, toGranularity: component)
-        }
-    
-    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
-    
-    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
-    
+//    https://newbedev.com/is-a-date-in-same-week-month-year-of-another-date-in-swift
     func hasSame(_ components: Calendar.Component..., as date: Date, using calendar: Calendar = .autoupdatingCurrent) -> Bool {
                  return components.filter { calendar.component($0, from: date) != calendar.component($0, from: self) }.isEmpty
         }

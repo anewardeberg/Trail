@@ -1,10 +1,3 @@
-//
-//  SettingsViewController.swift
-//  Trail 3.0
-//
-//  Created by Ane Wardeberg on 04/11/2021.
-//
-
 import UIKit
 import CoreData
 

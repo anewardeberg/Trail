@@ -26,7 +26,6 @@
 		BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */; };
 		BEEC427927492E67004E52A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEC427827492E67004E52A4 /* Assets.xcassets */; };
 		BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE93082732EE1A0003C4B6 /* MapViewController.swift */; };
-		BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE9315273320180003C4B6 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		BEEC427827492E67004E52A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AppIcons-5/Assets.xcassets"; sourceTree = "<group>"; };
 		BEFE93082732EE1A0003C4B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		BEFE9315273320180003C4B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +167,6 @@
 				BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */,
 				BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */,
 				BEFE93082732EE1A0003C4B6 /* MapViewController.swift */,
-				BEFE9315273320180003C4B6 /* TabBarController.swift */,
 				BE15C0C427340CD200B06446 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
@@ -317,7 +314,6 @@
 			files = (
 				BE0C7EF5273EEA1C00A78BDD /* ContactStorage.swift in Sources */,
 				BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */,
-				BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */,
 				BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */,
 				BECBA6C027319C30000A8221 /* ContactListViewController.swift in Sources */,
 				BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */,

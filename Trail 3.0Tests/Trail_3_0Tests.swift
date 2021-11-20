@@ -1,10 +1,3 @@
-//
-//  Trail_3_0Tests.swift
-//  Trail 3.0Tests
-//
-//  Created by Ane Wardeberg on 02/11/2021.
-//
-
 import XCTest
 @testable import Trail_3_0
 

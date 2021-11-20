@@ -1,10 +1,3 @@
-//
-//  Trail_3_0UITestsLaunchTests.swift
-//  Trail 3.0UITests
-//
-//  Created by Ane Wardeberg on 02/11/2021.
-//
-
 import XCTest
 
 class Trail_3_0UITestsLaunchTests: XCTestCase {

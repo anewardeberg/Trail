@@ -48,6 +48,18 @@ extension Date {
         return dateformatter.string(from: self)
     }
     
+    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+            calendar.isDate(self, equalTo: date, toGranularity: component)
+        }
+    
+    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+    
+    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+    
+    func hasSame(_ components: Calendar.Component..., as date: Date, using calendar: Calendar = .autoupdatingCurrent) -> Bool {
+                 return components.filter { calendar.component($0, from: date) != calendar.component($0, from: self) }.isEmpty
+        }
+    
 }
 
 extension String {

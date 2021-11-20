@@ -29,14 +29,14 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         birthdayEmojiLabel.alpha = 0
-        checkBirthday()
-        if(contactHasBirthday) {
-            rainBirthdayEmojis()
-        }
+    
         print("==== [CONTACT DETAIL] VIEW DID LOAD")
         super.viewDidLoad()
         if let contact = contact {
-            
+            checkBirthday()
+            if(contact.hasBirthday) {
+                rainBirthdayEmojis()
+            }
             contactLatitude = contact.latitude
             contactLongitude = contact.longitude
             contactImageURL = contact.imgMedium
@@ -57,14 +57,11 @@ class ContactDetailViewController: UIViewController {
     
     func viewWillAppear() {
         print("==== [CONTACT DETAIL] VIEW DID APPEAR")
-        checkBirthday()
-        if(contactHasBirthday) {
-            rainBirthdayEmojis()
-        }
         if let contact = contact {
             checkBirthday()
-            rainBirthdayEmojis()
-            
+            if(contact.hasBirthday) {
+                rainBirthdayEmojis()
+            }
             contactLatitude = contact.latitude
             contactLongitude = contact.longitude
             contactImageURL = contact.imgMedium
@@ -84,20 +81,25 @@ class ContactDetailViewController: UIViewController {
     }
     
     func checkBirthday() {
-        let birthday = contact?.date.toDate(dateFormat: "MM/dd")
+        let birthday = contact?.date.toDate(dateFormat: "MM/dd/yyyy")
         if contact != nil {
-            if Calendar.current.isDateInThisWeek(birthday!) {
+            let date = Date()
+            print(date)
+            if (birthday!.hasSame(.weekOfYear, as: date)) {
                 birthdayEmojiLabel.alpha = 1
-                contactHasBirthday = true
+                contact!.hasBirthday = true
+                ModelManager.sharedManager.saveContext()
             }
         }
     }
     
     func rainBirthdayEmojis() {
-        for n in 1...20 {
+        for _ in 1...20 {
             let randomInt = Int.random(in: 1..<400)
             let randomDuration = Double.random(in: 1...4)
             let animateEmoji = UILabel.init(frame: CGRect.init(x: randomInt, y: 0, width: 40, height: 40))
+            animateEmoji.font = UIFont.systemFont(ofSize: 40)
+            animateEmoji.transform = animateEmoji.transform.scaledBy(x: 1, y: 1);
             animateEmoji.text = birthdayEmojiArray.randomElement()
             view.addSubview(animateEmoji)
             
@@ -106,8 +108,10 @@ class ContactDetailViewController: UIViewController {
                            options: [.curveEaseIn, .repeat, .beginFromCurrentState],
                            animations: {
                 var frame = animateEmoji.frame
+                animateEmoji.transform = animateEmoji.transform.scaledBy(x: 0.1, y: 0.1);
                 frame.origin.y += 700
                 animateEmoji.frame = frame
+
                 
             }, completion: nil)
             

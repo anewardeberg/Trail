@@ -13,6 +13,7 @@ public class ContactStorage: NSManagedObject {
     @NSManaged var lastName: String
     @NSManaged var age: Int
     @NSManaged var date: String
+    @NSManaged var hasBirthday: Bool
     @NSManaged var city: String
     @NSManaged var state: String
     @NSManaged var postcode: String
@@ -40,6 +41,7 @@ extension ContactStorage {
             contactEntity.lastName = contact.name.last
             contactEntity.age = contact.dob.age
             contactEntity.date = contact.dob.date.formatISOStringToDate().toString(format: "MM/dd/yyyy")
+            contactEntity.hasBirthday = false
             contactEntity.city = contact.location.city
             contactEntity.state = contact.location.state
             contactEntity.postcode = contact.location.postcode

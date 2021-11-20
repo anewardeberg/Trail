@@ -12,7 +12,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     
     var contactLatitude: String?
     var contactLongitude: String?
-    var contactImageURL: String?
+    var contactImageURL: String!
     
     var contactList = [ContactStorage]()
     
@@ -20,8 +20,12 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     @IBOutlet weak var map: MKMapView!
     var contactModels = [ContactModel]()
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         map.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if (tabBarController?.selectedIndex == 1) {
             let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
             
@@ -30,16 +34,12 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                     let results = try fetchRequest.execute()
                     self.contactList = results
                     print("==== FETCHED CONTACT LIST FROM CORE DATA")
-                    var contactLocation: [MKPointAnnotation] = []
                     for contact in self.contactList {
+                        self.contactImageURL = contact.imgThumb
                         var contactCoordinate = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
-                        var contactName = "\(contact.firstName) \(contact.lastName)}"
-                        addAnnotation(coordinates: contactCoordinate, title: contactName)
-                        contactLocation.append(pin)
-                    
+                        var contactName = "\(contact.firstName) \(contact.lastName)"
+                        self.addCustomPin(coordinates: contactCoordinate, title: contactName)
                     }
-                    
-                    self.map.addAnnotations(contactLocation)
                 } catch {
                     print(error)
 #warning("alert user")
@@ -59,32 +59,40 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
             map.addAnnotation(contactLocation)
         }
         
-        func addAnnotation(coordinates: CLLocationCoordinate2D, title: String) {
-            let pin = MKPointAnnotation()
-            pin.title = title
-            pin.coordinate = coordinates
-            map.addAnnotation(pin)
-        }
-        
-        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            var annotationView: MKAnnotationView?
-            if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: pin, reuseIdentifier: "custom")
-                annotationView?.canShowCallout = true
-            } else {
-                annotationView?.annotation = pin
-            }
-            
-            return annotationView
-        }
-        
-        
-        
     }
     
-
+//https://www.youtube.com/watch?v=DHpL8yz6ot0&t=619s
     
+    func addCustomPin(coordinates: CLLocationCoordinate2D, title: String) {
+        let pin = MKPointAnnotation()
+        pin.title = title
+        pin.coordinate = coordinates
+        map.addAnnotation(pin)
+    }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annotationView = map.dequeueReusableAnnotationView(withIdentifier: "custom")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        getData(from: URL(string: contactImageURL)!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { 
+                annotationView?.image = UIImage(data: data)
+            }
+        }
+        return annotationView
+    }
+    
+//    https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

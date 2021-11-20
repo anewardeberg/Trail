@@ -17,11 +17,11 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     var contactList = [ContactStorage]()
     
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var map: MKMapView!
     var contactModels = [ContactModel]()
     
     override func viewWillAppear(_ animated: Bool) {
-        mapView.delegate = self
+        map.delegate = self
         if (tabBarController?.selectedIndex == 1) {
             let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
             
@@ -30,22 +30,21 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                     let results = try fetchRequest.execute()
                     self.contactList = results
                     print("==== FETCHED CONTACT LIST FROM CORE DATA")
-                    var contactLocation: [ContactLocation] = []
+                    var contactLocation: [MKPointAnnotation] = []
                     for contact in self.contactList {
                         var contactCoordinate = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
-                          contactLocation.append(ContactLocation(name: contact.firstName, coordinate: contactCoordinate))
-                        print("==== CONTACT LATITUDE")
-                        print(contact.latitude)
+                        var contactName = "\(contact.firstName) \(contact.lastName)}"
+                        addAnnotation(coordinates: contactCoordinate, title: contactName)
+                        contactLocation.append(pin)
+                    
                     }
                     
-                    self.mapView.addAnnotations(contactLocation)
+                    self.map.addAnnotations(contactLocation)
                 } catch {
                     print(error)
 #warning("alert user")
                 }
             }
-
-
             
                 
         }
@@ -55,14 +54,35 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
             print(contactLongitude)
             let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
             let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
-            mapView.setRegion(region, animated: true)
+            map.setRegion(region, animated: true)
             let contactLocation = ContactLocation(name: "User", coordinate: contactCoordinates)
-            mapView.addAnnotation(contactLocation)
+            map.addAnnotation(contactLocation)
+        }
+        
+        func addAnnotation(coordinates: CLLocationCoordinate2D, title: String) {
+            let pin = MKPointAnnotation()
+            pin.title = title
+            pin.coordinate = coordinates
+            map.addAnnotation(pin)
+        }
+        
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            var annotationView: MKAnnotationView?
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: pin, reuseIdentifier: "custom")
+                annotationView?.canShowCallout = true
+            } else {
+                annotationView?.annotation = pin
+            }
+            
+            return annotationView
         }
         
         
         
     }
+    
+
     
     
     

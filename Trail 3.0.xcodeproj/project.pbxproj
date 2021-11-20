@@ -10,7 +10,6 @@
 		BE0C7EF5273EEA1C00A78BDD /* ContactStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */; };
 		BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE15C0C427340CD200B06446 /* SettingsViewController.swift */; };
 		BE1FFACE2735B6F10098FCCB /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */; };
-		BE45676B2744493D00B10C78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE45676A2744493D00B10C78 /* Assets.xcassets */; };
 		BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49921C273BAC7C002351EF /* ModelManager.swift */; };
 		BECBA6BC27319C30000A8221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BB27319C30000A8221 /* AppDelegate.swift */; };
 		BECBA6BE27319C30000A8221 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6BD27319C30000A8221 /* SceneDelegate.swift */; };
@@ -26,6 +25,7 @@
 		BECBA6F72731A04F000A8221 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6F62731A04F000A8221 /* ContactModel.swift */; };
 		BECBA6FB2731D618000A8221 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FA2731D618000A8221 /* Extensions.swift */; };
 		BECBA6FF2732868D000A8221 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */; };
+		BEEC427927492E67004E52A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEC427827492E67004E52A4 /* Assets.xcassets */; };
 		BEFE93092732EE1A0003C4B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE93082732EE1A0003C4B6 /* MapViewController.swift */; };
 		BEFE930B2732F1260003C4B6 /* ContactLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE930A2732F1260003C4B6 /* ContactLocation.swift */; };
 		BEFE9316273320190003C4B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE9315273320180003C4B6 /* TabBarController.swift */; };
@@ -52,7 +52,6 @@
 		BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStorage.swift; sourceTree = "<group>"; };
 		BE15C0C427340CD200B06446 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
-		BE45676A2744493D00B10C78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../../Downloads/AppIcons-5/Assets.xcassets"; sourceTree = "<group>"; };
 		BE49921C273BAC7C002351EF /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		BECBA6B827319C30000A8221 /* Trail 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trail 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECBA6BB27319C30000A8221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		BECBA6F62731A04F000A8221 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		BECBA6FA2731D618000A8221 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BECBA6FE2732868D000A8221 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		BEEC427827492E67004E52A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AppIcons-5/Assets.xcassets"; sourceTree = "<group>"; };
 		BEFE93082732EE1A0003C4B6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BEFE930A2732F1260003C4B6 /* ContactLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactLocation.swift; sourceTree = "<group>"; };
 		BEFE9315273320180003C4B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				BECBA6BB27319C30000A8221 /* AppDelegate.swift */,
 				BECBA6BD27319C30000A8221 /* SceneDelegate.swift */,
 				BECBA6CC27319C33000A8221 /* Info.plist */,
-				BE45676A2744493D00B10C78 /* Assets.xcassets */,
+				BEEC427827492E67004E52A4 /* Assets.xcassets */,
 				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
 				BE49921C273BAC7C002351EF /* ModelManager.swift */,
 			);
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */,
-				BE45676B2744493D00B10C78 /* Assets.xcassets in Resources */,
+				BEEC427927492E67004E52A4 /* Assets.xcassets in Resources */,
 				BECBA6C327319C30000A8221 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

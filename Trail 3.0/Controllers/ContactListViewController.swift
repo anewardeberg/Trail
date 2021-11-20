@@ -17,7 +17,6 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                 contactList = contactList.sorted(by: {  $0.lastName < $1.lastName })
              }
      }
-     var contactModels = [ContactModel]()
      var selectedContact: ContactStorage?
      var entityIsEmpty = false
      
@@ -79,7 +78,6 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           // https://stackoverflow.com/questions/27651507/passing-data-between-tab-viewed-controllers-in-swift
           let navController = self.tabBarController!.viewControllers![1] as! UINavigationController
           let vc = navController.topViewController as! MapViewController
-          vc.contactModels = contactModels
           
      }
      
@@ -96,30 +94,6 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
           }
      }
      
-     
-     
-#warning("TODO: Fix this")
-     private func tabBar(_ tabBar: UITabBar, didSelect navigationController: UINavigationController) {
-          if navigationController.restorationIdentifier == "contactListNC"{
-               print("==== [CONTACT LIST] CONTACT LIST VIEW CONTROLLER")
-          } else if navigationController.restorationIdentifier == "mapNC" {
-               print("==== [CONTACT LIST] MAP VIEW CONTROLLER")
-          }
-     }
-     
-     
-     //     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-     //          if viewController.isKind(of: MapViewController.self as AnyClass) {
-     //               let viewController = tabBarController.viewControllers?[1] as! MapViewController
-     //               viewController.contacts = self.contactModels
-     //          }
-     //          return true
-     //     }
-     //
-     
-     //     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-     //          <#code#>
-     //     }
      
      override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           return contactList.count
@@ -153,6 +127,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                let destinationVC = segue.destination as! ContactDetailViewController
                if let selectedContact = selectedContact {
                     destinationVC.contact = selectedContact
+                    destinationVC.managedObjectContext = ModelManager.sharedManager.persistentContainer.viewContext
                }
           }
      }

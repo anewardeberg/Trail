@@ -5,7 +5,7 @@
 //  Created by Ane Wardeberg on 03/11/2021.
 //
 import UIKit
-import MapKit
+import MapKit 
 import CoreData
 
 class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManagerDelegate {
@@ -20,7 +20,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     
     
     @IBOutlet weak var map: MKMapView!
-    var contactModels = [ContactModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,9 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                     }
                 } catch {
                     print(error)
-#warning("alert user")
+                    let alert = UIAlertController(title: "Could not fetch contacts", message: "Try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                 }
             }
             

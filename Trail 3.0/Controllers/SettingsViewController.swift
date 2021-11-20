@@ -32,6 +32,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 print("==== [SETTINGS] CONTACTS FETCHED")
             } catch {
                 print(error)
+                let alert = UIAlertController(title: "Could not fetch contacts", message: "Try again later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
         }
     }
@@ -67,6 +70,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     }
                 case .failure(let error):
                     print(error)
+                    let alert = UIAlertController(title: "Could not fetch contacts", message: "Check your internet connection,", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                 }
             }
             let alert = UIAlertController(title: "Seed saved successfully!", message: "Seed: \(API.shared.seed)", preferredStyle: .alert)

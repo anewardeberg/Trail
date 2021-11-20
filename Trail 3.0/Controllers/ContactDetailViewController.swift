@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ContactDetailViewController: UIViewController {
+    var managedObjectContext : NSManagedObjectContext?
     var contact: ContactStorage?
     var contactLatitude: String?
     var contactLongitude: String?

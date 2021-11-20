@@ -66,18 +66,12 @@ class EditContactViewController: UIViewController {
         
         updateBirthday()
         contact.isEdited = true
-        
-        #warning("change age dynamically to date picked")
-
-        
         self.navigationController?.popViewController(animated: true)
     }
     
 //    https://stackoverflow.com/questions/25232009/calculate-age-from-birth-date-using-nsdatecomponents-in-swift
     func updateBirthday() {
-   
-
-        var birthday = birthdayDatePicker.date.toString(format: "MM/dd/yyyy")
+        let birthday = birthdayDatePicker.date.toString(format: "MM/dd/yyyy")
         contact.date = birthday
         print("==== [EDIT CONTACT] BIRTHDAY")
         print(birthday)
@@ -87,8 +81,6 @@ class EditContactViewController: UIViewController {
         print(age)
         contact.age = age
         ModelManager.sharedManager.saveContext()
-        
-        
     }
 
 

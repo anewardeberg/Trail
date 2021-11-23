@@ -4,12 +4,13 @@ import CoreData
 
 class ContactDetailViewController: UIViewController {
     var managedObjectContext : NSManagedObjectContext?
-    var contact: ContactStorage?
+    var contact: ContactStorage!
     var contactLatitude: String?
     var contactLongitude: String?
     var contactImageURL: String?
     var contactHasBirthday = false
     let birthdayEmojiArray = ["🎉", "⭐️", "🎂", "🧁", "🎊"]
+    let context = ModelManager.sharedManager.persistentContainer.viewContext
     
     
     @IBOutlet weak var contactImageView: UIImageView!
@@ -24,35 +25,47 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         birthdayEmojiLabel.alpha = 0
-    
+        
         print("==== [CONTACT DETAIL] VIEW DID LOAD")
         super.viewDidLoad()
-        if let contact = contact {
-            checkBirthday()
-            if(contact.hasBirthday) {
-                rainBirthdayEmojis()
+        let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", contact.id)
+        
+        context.perform {
+            do {
+                let result = try fetchRequest.execute()
+                self.contact = result[0]
+            } catch {
+                print(error)
+#warning("alert user")
             }
-            contactLatitude = contact.latitude
-            contactLongitude = contact.longitude
-            contactImageURL = contact.imgMedium
-            
-            
-            contactImageView.loadImage(urlString: contact.imgLarge)
-            nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
-            print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
-            locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
-            cellLabel.text = "+47 \(contact.cell)"
-            mailLabel.text = contact.email
-            showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
         }
+        checkBirthday()
+        if(contact.hasBirthday) {
+            rainBirthdayEmojis()
+        }
+        contactLatitude = contact.latitude
+        contactLongitude = contact.longitude
+        contactImageURL = contact.imgMedium
+        
+        
+        contactImageView.loadImage(urlString: contact.imgLarge)
+        nameLabel.text = "\(contact.firstName) \(contact.lastName)"
+        birthdayLabel.text = "\(contact.age) år (\(contact.date))"
+        print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
+        locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
+        cellLabel.text = "+47 \(contact.cell)"
+        mailLabel.text = contact.email
+        showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
+        
         
         
     }
     
     func viewWillAppear() {
+        super.viewDidAppear(true)
         print("==== [CONTACT DETAIL] VIEW DID APPEAR")
-        if let contact = contact {
+        
             checkBirthday()
             if(contact.hasBirthday) {
                 rainBirthdayEmojis()
@@ -70,8 +83,6 @@ class ContactDetailViewController: UIViewController {
             cellLabel.text = "+47 \(contact.cell)"
             mailLabel.text = contact.email
             showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
-        }
-        
         
     }
     
@@ -106,7 +117,7 @@ class ContactDetailViewController: UIViewController {
                 animateEmoji.transform = animateEmoji.transform.scaledBy(x: 0.1, y: 0.1);
                 frame.origin.y += 700
                 animateEmoji.frame = frame
-
+                
                 
             }, completion: nil)
             
@@ -131,7 +142,7 @@ class ContactDetailViewController: UIViewController {
         let refreshAlert = UIAlertController(title: "Delete contact?", message: "This action cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
             print("==== [CONTACT DETAIL] CONTACT DELETED")
-            ModelManager.sharedManager.persistentContainer.viewContext.delete(self.contact!)
+            self.context.delete(self.contact)
             ModelManager.sharedManager.saveContext()
             self.navigationController?.popViewController(animated: true)
         }))
@@ -155,9 +166,9 @@ class ContactDetailViewController: UIViewController {
         
         if segue.identifier == "goToEditContact" {
             let destinationVC = segue.destination as! EditContactViewController
-            if let contact = contact {
-                destinationVC.contact = contact
-            }
+            destinationVC.context = context
+            destinationVC.contact = contact
+            
         }
     }
     

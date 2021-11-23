@@ -1,10 +1,12 @@
 import Foundation
 import UIKit
+import CoreData
 
 //https://developer.apple.com/forums/thread/101483
 class EditContactViewController: UIViewController {
     var contact: ContactStorage!
     var activeTextField = UITextField()
+    var context: NSManagedObjectContext!
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,17 +19,25 @@ class EditContactViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
-
-        if let contact = contact {
-            firstNameTextField.placeholder = contact.firstName
-            lastNameTextField.placeholder = contact.lastName
-            cityTextField.placeholder = contact.city
-            emailTextField.placeholder = contact.email
-            cellTextField.placeholder = contact.cell
-            birthdayDatePicker.date = contact.date.toDate(dateFormat:"MM/dd/yyyy")
+        
+        let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", contact.id)
+        
+        context.perform {
+            do {
+                let result = try fetchRequest.execute()
+                self.contact = result[0]
+            } catch {
+                print(error)
+#warning("alert user")
+            }
         }
-        
-        
+        firstNameTextField.placeholder = contact.firstName
+        lastNameTextField.placeholder = contact.lastName
+        cityTextField.placeholder = contact.city
+        emailTextField.placeholder = contact.email
+        cellTextField.placeholder = contact.cell
+        birthdayDatePicker.date = contact.date.toDate(dateFormat:"MM/dd/yyyy")
     }
 
     @IBAction func saveContactInfoButtonWasTapped(_ sender: Any) {
@@ -59,6 +69,7 @@ class EditContactViewController: UIViewController {
         
         updateBirthday()
         contact.isEdited = true
+        try? context.save()
         self.navigationController?.popViewController(animated: true)
     }
     

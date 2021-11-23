@@ -3,7 +3,6 @@ import CoreData
 
 class ContactListViewController: UITableViewController, UITabBarDelegate {
      
-     
 #warning("TODO: Lag egen funksjon for å lagre bilder")
      var contactList = [ContactStorage]() {
           didSet {

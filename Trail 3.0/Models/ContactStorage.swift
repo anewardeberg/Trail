@@ -25,11 +25,7 @@ extension ContactStorage {
     static func saveContacts(contacts: [Contact], context: NSManagedObjectContext) {
         for contact in contacts {
             let contactEntity = ContactStorage(context: context)
-//            let birthday = contact.dob.date.formatISOStringToDate()
-//            print("==== [CONTACT STORAGE] Birthday date: \(birthday)")
-//            let formattedBirthday = birthday.toString(format: MM/dd/yyyy)
-//            print("==== [CONTACT STORAGE] Formatted Birthday date: \(formattedBirthday)")
-            
+
             contactEntity.firstName = contact.name.first
             contactEntity.lastName = contact.name.last
             contactEntity.age = contact.dob.age

@@ -10,12 +10,16 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                 contactList = contactList.sorted(by: {  $0.lastName < $1.lastName })
              }
      }
+     
+     let context = ModelManager.sharedManager.persistentContainer.viewContext
+     
      var selectedContact: ContactStorage?
      var entityIsEmpty = false
      
      override func viewDidLoad() {
           checkEntityIsEmpty()
           super.viewDidLoad()
+          let context = self.context
           print("==== [CONTACT LIST] VIEW DID LOAD")
           
           if(entityIsEmpty) {
@@ -24,9 +28,21 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                     switch result {
                     case .success(let contacts):
                          DispatchQueue.main.async {
-                              ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
+                              ContactStorage.saveContacts(contacts: contacts, context: context)
                               print("==== [CONTACT LIST] SAVED CONTACTS")
-                              self?.tableView.reloadData()
+                              
+                              let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
+                              
+                              context.perform {
+                                   do {
+                                        let results = try fetchRequest.execute()
+                                        self?.contactList = results
+                                        self?.tableView.reloadData()
+                                   } catch {
+                                        print(error)
+                    #warning("alert user")
+                                   }
+                              }
                          }
                     case .failure(let error):
                          print(error)
@@ -36,7 +52,7 @@ class ContactListViewController: UITableViewController, UITabBarDelegate {
                print("==== [CONTACT LIST] FROM CORE DATA")
                let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
                
-               ModelManager.sharedManager.persistentContainer.viewContext.perform {
+               context.perform {
                     do {
                          let results = try fetchRequest.execute()
                          self.contactList = results

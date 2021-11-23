@@ -4,7 +4,7 @@ import CoreData
 class ModelManager: NSObject {
     
     class var sharedManager : ModelManager {
-           struct Singleton {
+           class Singleton {
                static let instance = ModelManager()
            }
            return Singleton.instance
@@ -13,7 +13,7 @@ class ModelManager: NSObject {
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
-         The persistent container for the application. This implementation
+         The persistent container for tshe application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.

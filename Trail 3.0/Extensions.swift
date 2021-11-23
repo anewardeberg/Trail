@@ -8,7 +8,6 @@ import UIKit
 extension UIImageView {
     func loadImage(urlString: String) {
         let task = URLSession.shared.dataTask(with: URL.init(string: urlString)!) { (data, response, error) in
-            
             if let image = UIImage(data: data!) {
                 DispatchQueue.main.async {
                     self.image = image

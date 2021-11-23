@@ -25,7 +25,7 @@ extension ContactStorage {
     static func saveContacts(contacts: [Contact], context: NSManagedObjectContext) {
         for contact in contacts {
             let contactEntity = ContactStorage(context: context)
-            
+
             contactEntity.firstName = contact.name.first
             contactEntity.lastName = contact.name.last
             contactEntity.age = contact.dob.age

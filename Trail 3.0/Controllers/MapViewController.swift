@@ -29,16 +29,20 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                     let results = try fetchRequest.execute()
                     self.contactList = results
                     print("==== FETCHED CONTACT LIST FROM CORE DATA")
+                    
                     for contact in self.contactList {
-                        self.contactImageURL = contact.imgThumb
                         var contactCoordinate = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
+                        
                         var contactName = "\(contact.firstName) \(contact.lastName)"
-                        self.addCustomPin(coordinates: contactCoordinate, title: contactName)
+                        
+                        self.addCustomPin(coordinates: contactCoordinate, title: contactName, id: contact.id, uri: contact.imgThumb)
                     }
                 } catch {
                     print(error)
+                    
                     let alert = UIAlertController(title: "Could not fetch contacts", message: "Try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    
                     self.present(alert, animated: true)
                 }
             }
@@ -49,65 +53,71 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         if let contactLatitude = contactLatitude {
             print(contactLatitude)
             print(contactLongitude)
+            
             let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
             let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
             map.setRegion(region, animated: true)
-            addCustomPin(coordinates: contactCoordinates, title: " ")
+            addCustomPin(coordinates: contactCoordinates, title: " ", id: " ", uri: contactImageURL)
         }
         
     }
     
     //https://www.youtube.com/watch?v=DHpL8yz6ot0&t=619s
     
-    func addCustomPin(coordinates: CLLocationCoordinate2D, title: String) {
-        let pin = MKPointAnnotation()
-        pin.title = title
-        pin.coordinate = coordinates
+    func addCustomPin(coordinates: CLLocationCoordinate2D, title: String, id: String, uri: String) {
+        let pin = ContactAnnotation(title: title, subtitle: "", coordinate: coordinates)
+        
+        pin.id = id
+        pin.uri = uri
+        
         map.addAnnotation(pin)
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        selectedContactCoordinates = view.annotation?.coordinate
+        let annotation = view.annotation as? ContactAnnotation
+        
         if control == view.rightCalloutAccessoryView {
             for contact in contactList {
-                var contactLocation = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
-                if(selectedContactCoordinates?.latitude == contactLocation.latitude && selectedContactCoordinates?.longitude == contactLocation.longitude) {
+                if(contact.id == annotation?.id) {
                     selectedContact = contact
                 }
             }
+            
             performSegue(withIdentifier: "fromMapToContactDetail", sender: self)
         }
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+    internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView = map.dequeueReusableAnnotationView(withIdentifier: "custom")
         
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
-            annotationView?.canShowCallout = true
-            //            https://stackoverflow.com/questions/33053832/swift-perform-segue-from-map-annotation
-            var rightButton: AnyObject! = UIButton(type: UIButton.ButtonType.detailDisclosure)
-            rightButton.title(for: UIControl.State.normal)
+        if let annotation = annotation as? ContactAnnotation {
+            let identifier = "custom"
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             
-            annotationView!.rightCalloutAccessoryView = rightButton as! UIView
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        getData(from: URL(string: contactImageURL)!) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                annotationView?.image = UIImage(data: data)
+            getData(from: annotation.uri!) { (data, response, error) in
+                guard let data = data, error == nil else {
+                    debugPrint("No date derived from uri: \(annotation.uri ?? "nil")")
+                    return
+                }
+                
+                DispatchQueue.main.async() {
+                    annotationView?.image = UIImage(data: data)
+                }
             }
+            
+            annotationView?.canShowCallout = true
+            annotationView?.calloutOffset = CGPoint(x: -5, y: 5)
+            
+            annotationView!.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            return annotationView
         }
-        
-        return annotationView
+    
+        return nil
     }
     
     //    https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    func getData(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: completion).resume()
     }
     
     override func didReceiveMemoryWarning() {

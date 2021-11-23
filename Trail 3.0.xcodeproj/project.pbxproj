@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE089763274DA85300F97F8B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE089762274DA85300F97F8B /* Media.xcassets */; };
+		BE089763274DA85300F97F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE089762274DA85300F97F8B /* Assets.xcassets */; };
 		BE0C7EF5273EEA1C00A78BDD /* ContactStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */; };
 		BE15C0C527340CD200B06446 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE15C0C427340CD200B06446 /* SettingsViewController.swift */; };
-		BE1724E1274D95C100C6F4A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1724E0274D95C100C6F4A4 /* Assets.xcassets */; };
 		BE1FFACE2735B6F10098FCCB /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */; };
 		BE49921D273BAC7D002351EF /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49921C273BAC7C002351EF /* ModelManager.swift */; };
 		BE87E09A274D41B3004E41A3 /* ContactAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87E099274D41B3004E41A3 /* ContactAnnotation.swift */; };
@@ -48,10 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BE089762274DA85300F97F8B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		BE089762274DA85300F97F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		BE0C7EF4273EEA1C00A78BDD /* ContactStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStorage.swift; sourceTree = "<group>"; };
 		BE15C0C427340CD200B06446 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		BE1724E0274D95C100C6F4A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/AppIcons-5/Assets.xcassets"; sourceTree = "<group>"; };
 		BE1FFACD2735B6F10098FCCB /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		BE49921C273BAC7C002351EF /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		BE87E099274D41B3004E41A3 /* ContactAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAnnotation.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		BECBA6AF27319C30000A8221 = {
 			isa = PBXGroup;
 			children = (
-				BE089762274DA85300F97F8B /* Media.xcassets */,
 				BECBA6BA27319C30000A8221 /* Trail 3.0 */,
 				BECBA6D427319C34000A8221 /* Trail 3.0Tests */,
 				BECBA6DE27319C34000A8221 /* Trail 3.0UITests */,
@@ -134,7 +131,7 @@
 				BECBA6CC27319C33000A8221 /* Info.plist */,
 				BECBA6C427319C30000A8221 /* Trail_3_0.xcdatamodeld */,
 				BE49921C273BAC7C002351EF /* ModelManager.swift */,
-				BE1724E0274D95C100C6F4A4 /* Assets.xcassets */,
+				BE089762274DA85300F97F8B /* Assets.xcassets */,
 			);
 			path = "Trail 3.0";
 			sourceTree = "<group>";
@@ -292,8 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECBA6CB27319C33000A8221 /* LaunchScreen.storyboard in Resources */,
-				BE1724E1274D95C100C6F4A4 /* Assets.xcassets in Resources */,
-				BE089763274DA85300F97F8B /* Media.xcassets in Resources */,
+				BE089763274DA85300F97F8B /* Assets.xcassets in Resources */,
 				BECBA6C327319C30000A8221 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

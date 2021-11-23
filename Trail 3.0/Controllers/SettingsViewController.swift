@@ -1,7 +1,10 @@
 import UIKit
 import CoreData
 
+
 class SettingsViewController: UIViewController, UITextFieldDelegate {
+    
+    var context = ModelManager.sharedManager.persistentContainer.viewContext
     
     @IBOutlet weak var apiSeedTextField: UITextField!
     var contactList = [ContactStorage]()
@@ -12,17 +15,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         apiSeedTextField.delegate = self
         apiSeedTextField.placeholder = "Current seed: \(API.shared.seed)"
         
-        //      https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
         let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
         
-        ModelManager.sharedManager.persistentContainer.viewContext.perform {
+        context.perform {
             do {
                 let results = try fetchRequest.execute()
                 self.contactList = results
-                print("==== [SETTINGS] CONTACTS FETCHED")
             } catch {
                 print(error)
                 let alert = UIAlertController(title: "Could not fetch contacts", message: "Try again later", preferredStyle: .alert)
@@ -36,8 +37,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         apiSeedTextField.endEditing(true)
         let apiSeedString = apiSeedTextField.text
         let trimmedApiSeedString = apiSeedString?.removeWhitespaces()
-        print("==== [SETTINGS]")
-        print(trimmedApiSeedString)
         if(trimmedApiSeedString == "") {
             let alert = UIAlertController(title: "Error saving seed:", message: "Invalid or no input", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
@@ -49,19 +48,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             
             for contact in contactList {
                 if(contact.isEdited == false) {
-                    ModelManager.sharedManager.persistentContainer.viewContext.delete(contact)
-                    print("==== [SETTINGS] CONTACT DELETED")
+                    context.delete(contact)
                 }
             }
             
-            try? ModelManager.sharedManager.persistentContainer.viewContext.save()
+            try? context.save()
             
             API.shared.getRandomContacts{ result in
                 switch result {
                 case .success(let contacts):
                     DispatchQueue.main.async {
-                        ContactStorage.saveContacts(contacts: contacts, context: ModelManager.sharedManager.persistentContainer.viewContext)
-                        print("==== [SETTINGS] FETCHED AND SAVED NEW CONTACTS")
+                        ContactStorage.saveContacts(contacts: contacts, context: self.context)
                     }
                 case .failure(let error):
                     print(error)

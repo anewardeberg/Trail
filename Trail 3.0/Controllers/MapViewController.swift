@@ -9,9 +9,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
     var contactImageURL: String!
     var selectedContact: ContactStorage?
     var selectedContactCoordinates: CLLocationCoordinate2D?
-    
     var contactList = [ContactStorage]()
-    
     
     @IBOutlet weak var map: MKMapView!
     
@@ -28,12 +26,11 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
                 do {
                     let results = try fetchRequest.execute()
                     self.contactList = results
-                    print("==== FETCHED CONTACT LIST FROM CORE DATA")
                     
                     for contact in self.contactList {
-                        var contactCoordinate = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
+                        let contactCoordinate = CLLocationCoordinate2D(latitude: contact.latitude.toDouble(), longitude: contact.longitude.toDouble())
                         
-                        var contactName = "\(contact.firstName) \(contact.lastName)"
+                        let contactName = "\(contact.firstName) \(contact.lastName)"
                         
                         self.addCustomPin(coordinates: contactCoordinate, title: contactName, id: contact.id, uri: contact.imgThumb)
                     }
@@ -51,8 +48,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         }
         
         if let contactLatitude = contactLatitude {
-            print(contactLatitude)
-            print(contactLongitude)
             
             let contactCoordinates = CLLocationCoordinate2D(latitude: contactLatitude.toDouble(), longitude: contactLongitude?.toDouble() ?? 0)
             let region = MKCoordinateRegion( center: contactCoordinates, latitudinalMeters: CLLocationDistance(exactly: 1000)!, longitudinalMeters: CLLocationDistance(exactly: 1000)!)
@@ -61,8 +56,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         }
         
     }
-    
-    //https://www.youtube.com/watch?v=DHpL8yz6ot0&t=619s
     
     func addCustomPin(coordinates: CLLocationCoordinate2D, title: String, id: String, uri: String) {
         let pin = ContactAnnotation(title: title, subtitle: "", coordinate: coordinates)
@@ -115,7 +108,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,  CLLocationManager
         return nil
     }
     
-    //    https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
     func getData(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: completion).resume()
     }

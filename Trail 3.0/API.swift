@@ -1,18 +1,11 @@
 import Foundation
 import UIKit
 
-// https://www.youtube.com/watch?v=V2IfBdxjWs4&t=1377s
-
-
 final class API {
-    
-    
     static let shared = API()
     var seed: String = "ios"
-    
     var url = URL(string: "https://randomuser.me/api/?results=100&seed=ios&nat=no")
 
-    
     private init(){}
     
     func setApiSeed(seedInput: String) {
@@ -38,8 +31,6 @@ final class API {
                 }
             }
         }
-        
         task.resume()
     }
-    
 }

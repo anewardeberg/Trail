@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 import CoreData
 
-//https://developer.apple.com/forums/thread/101483
 class EditContactViewController: UIViewController {
     var contact: ContactStorage!
     var activeTextField = UITextField()
@@ -29,7 +28,10 @@ class EditContactViewController: UIViewController {
                 self.contact = result[0]
             } catch {
                 print(error)
-#warning("alert user")
+                let alert = UIAlertController(title: "Could not fetch contact", message: "Try again later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
             }
         }
         firstNameTextField.placeholder = contact.firstName
@@ -73,20 +75,14 @@ class EditContactViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-//    https://stackoverflow.com/questions/25232009/calculate-age-from-birth-date-using-nsdatecomponents-in-swift
     func updateBirthday() {
         let birthday = birthdayDatePicker.date.toString(format: "MM/dd/yyyy")
         contact.date = birthday
-        print("==== [EDIT CONTACT] BIRTHDAY")
-        print(birthday)
         let timeInterval = birthdayDatePicker.date.timeIntervalSinceNow
         let age = abs(Int(timeInterval / 31556926.0))
-        print("==== [EDIT CONTACT] AGE")
-        print(age)
         contact.age = age
         try? context.save()
     }
-
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         activeTextField.endEditing(true)

@@ -25,8 +25,7 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         birthdayEmojiLabel.alpha = 0
-        
-        print("==== [CONTACT DETAIL] VIEW DID LOAD")
+
         super.viewDidLoad()
         let fetchRequest = NSFetchRequest<ContactStorage>(entityName: "ContactStorage")
         fetchRequest.predicate = NSPredicate(format: "id == %@", contact.id)
@@ -37,7 +36,10 @@ class ContactDetailViewController: UIViewController {
                 self.contact = result[0]
             } catch {
                 print(error)
-#warning("alert user")
+                let alert = UIAlertController(title: "Could not fetch contact", message: "Try again later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
             }
         }
         checkBirthday()
@@ -52,7 +54,6 @@ class ContactDetailViewController: UIViewController {
         contactImageView.loadImage(urlString: contact.imgLarge)
         nameLabel.text = "\(contact.firstName) \(contact.lastName)"
         birthdayLabel.text = "\(contact.age) år (\(contact.date))"
-        print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
         locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
         cellLabel.text = "+47 \(contact.cell)"
         mailLabel.text = contact.email
@@ -62,35 +63,10 @@ class ContactDetailViewController: UIViewController {
         
     }
     
-    func viewWillAppear() {
-        super.viewDidAppear(true)
-        print("==== [CONTACT DETAIL] VIEW DID APPEAR")
-        
-            checkBirthday()
-            if(contact.hasBirthday) {
-                rainBirthdayEmojis()
-            }
-            contactLatitude = contact.latitude
-            contactLongitude = contact.longitude
-            contactImageURL = contact.imgMedium
-            
-            
-            contactImageView.loadImage(urlString: contact.imgLarge)
-            nameLabel.text = "\(contact.firstName) \(contact.lastName)"
-            birthdayLabel.text = "\(contact.age) år (\(contact.date))"
-            print("==== [CONTACT DETAIL] Contact Birthday: \(contact.date)")
-            locationLabel.text = "\(contact.postcode) \(contact.city), \(contact.state)"
-            cellLabel.text = "+47 \(contact.cell)"
-            mailLabel.text = contact.email
-            showUserOnMapButton.setTitle("Show \(contact.firstName) on the map", for: .normal)
-        
-    }
-    
     func checkBirthday() {
         let birthday = contact?.date.toDate(dateFormat: "MM/dd/yyyy")
         if contact != nil {
             let date = Date()
-            print(date)
             if (birthday!.hasSame(.weekOfYear, as: date)) {
                 birthdayEmojiLabel.alpha = 1
                 contact!.hasBirthday = true
@@ -138,10 +114,8 @@ class ContactDetailViewController: UIViewController {
     
     
     @IBAction func deleteContactButtonWasTapped(_ sender: UIButton) {
-        //  https://stackoverflow.com/questions/25511945/swift-alert-view-with-ok-and-cancel-which-button-tapped
         let refreshAlert = UIAlertController(title: "Delete contact?", message: "This action cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
-            print("==== [CONTACT DETAIL] CONTACT DELETED")
             self.context.delete(self.contact)
             try? self.context.save()
             self.navigationController?.popViewController(animated: true)

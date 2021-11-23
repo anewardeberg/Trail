@@ -1,6 +1,6 @@
 # Trail [PG5601 Exam]
 
-`iOS version: 15.0`
+`Swift version: 5`
 
 `Xcode version: 13.0`
 

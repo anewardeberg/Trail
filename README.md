@@ -1,6 +1,10 @@
 # Trail [PG5601 Exam]
-Trail is an app developed as my exam in iOS programming for the autumn semester of 2021. The app lists 100 people randomly generated from the [Random user API](https://randomuser.me), and lets the user see and edit details about each contact. The app also shows every user's location with a custom annotation pin on a map, and it is also possible to change the seed to generate 100 new contacts, deleting the already existing contacts if they have not been edited. Contacts are saved in Core Data, and their information is persisted and accessible even when the app is offline. 
 
+`iOS version: 15.0`
+
+`Xcode version: 13.0`
+
+Trail is an app developed as my exam in iOS programming for the autumn semester of 2021. The app lists 100 people randomly generated from the [Random user API](https://randomuser.me), and lets the user see and edit details about each contact. The app also shows every user's location with a custom annotation pin on a map, and it is also possible to change the seed to generate 100 new contacts, deleting the already existing contacts if they have not been edited. Contacts are saved in Core Data, and their information is persisted and accessible even when the app is offline. 
 > Project is attached as .zip
 
 ## EXCLUDED FUNCTIONALITY

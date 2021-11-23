@@ -46,6 +46,6 @@ extension ContactStorage {
             
         }
         
-        ModelManager.sharedManager.saveContext()
+        try? ModelManager.sharedManager.persistentContainer.viewContext.save()
     }
 }

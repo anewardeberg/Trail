@@ -84,7 +84,7 @@ class EditContactViewController: UIViewController {
         print("==== [EDIT CONTACT] AGE")
         print(age)
         contact.age = age
-        ModelManager.sharedManager.saveContext()
+        try? context.save()
     }
 
 
@@ -102,13 +102,6 @@ class EditContactViewController: UIViewController {
             return true
         } else {
             return false
-        }
-    }
-    
-//    https://stackoverflow.com/questions/25223407/max-length-uitextfield
-    func checkMaxLength(textField: UITextField!, maxLength: Int) {
-        if (textField.text!.count > maxLength) {
-            textField.deleteBackward()
         }
     }
 }

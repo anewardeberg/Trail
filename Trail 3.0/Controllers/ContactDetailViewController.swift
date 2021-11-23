@@ -94,7 +94,7 @@ class ContactDetailViewController: UIViewController {
             if (birthday!.hasSame(.weekOfYear, as: date)) {
                 birthdayEmojiLabel.alpha = 1
                 contact!.hasBirthday = true
-                ModelManager.sharedManager.saveContext()
+                try? context.save()
             }
         }
     }
@@ -143,7 +143,7 @@ class ContactDetailViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
             print("==== [CONTACT DETAIL] CONTACT DELETED")
             self.context.delete(self.contact)
-            ModelManager.sharedManager.saveContext()
+            try? self.context.save()
             self.navigationController?.popViewController(animated: true)
         }))
         

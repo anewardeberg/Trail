@@ -51,9 +51,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 if(contact.isEdited == false) {
                     ModelManager.sharedManager.persistentContainer.viewContext.delete(contact)
                     print("==== [SETTINGS] CONTACT DELETED")
-                    ModelManager.sharedManager.saveContext()
                 }
             }
+            
+            try? ModelManager.sharedManager.persistentContainer.viewContext.save()
+            
             API.shared.getRandomContacts{ result in
                 switch result {
                 case .success(let contacts):
@@ -68,8 +70,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     self.present(alert, animated: true)
                 }
             }
+            
             let alert = UIAlertController(title: "Seed saved successfully!", message: "Seed: \(API.shared.seed)", preferredStyle: .alert)
+            
             alert.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: nil))
+            
             self.present(alert, animated: true)
         }
     }
